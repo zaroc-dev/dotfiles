@@ -54,6 +54,17 @@ input {
     focus-follows-mouse max-scroll-amount="0%"
 }
 
+output "DP-1" {
+	mode "1920x1080@144.000"
+	position x=0 y=0
+  focus-at-startup
+}
+
+output "HDMI-A-1" {
+	mode "1920x1080@74.973"
+	position x=-1920 y=0
+}
+
 layout {
     // Set gaps around windows in logical pixels.
     gaps 12
@@ -180,7 +191,7 @@ binds {
     Super+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Super+Comma hotkey-overlay-title="Show Settings" { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
     Super+C hotkey-overlay-title="Open Code Editor" { spawn "code"; }
-    Super+B hotkey-overlay-title="Open Browser" { spawn "brave-nightly"; }
+    Super+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
 
     Mod+V hotkey-overlay-title="Run an Application: Applauncher" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
     Mod+A hotkey-overlay-title="Open control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
