@@ -5,14 +5,11 @@ include "windowrules.kdl"
 
 environment {
     QT_QPA_PLATFORMTHEME "gtk3"
-    GSK_RENDERER "cairo"
 }
 
 xwayland-satellite {
-    // off
     path "xwayland-satellite"
 }
-
 
 cursor {
     xcursor-theme "breeze_cursors"
@@ -26,19 +23,11 @@ input {
     keyboard {
         xkb {
         }
-
-        // Enable numlock on startup, omitting this setting disables it.
         numlock
     }
 
     touchpad {
-        // off
         tap
-        // natural-scroll
-        // accel-speed 0.2
-        // accel-profile "flat"
-        // scroll-method "two-finger"
-        // disabled-on-external-mouse
     }
 
     mouse {
@@ -48,11 +37,6 @@ input {
     trackpoint {
     }
 
-    // Uncomment this to make the mouse warp to the center of newly focused windows.
-    // warp-mouse-to-focus
-
-    // Focus windows and outputs automatically when moving the mouse into them.
-    // Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
     focus-follows-mouse max-scroll-amount="0%"
 }
 
@@ -68,17 +52,10 @@ output "HDMI-A-1" {
 }
 
 layout {
-    // Set gaps around windows in logical pixels.
     gaps 12
 
     background-color "transparent"
 
-    // When to center a column when changing focus, options are:
-    // - "never", default behavior, focusing an off-screen column will keep at the left
-    //   or right edge of the screen.
-    // - "always", the focused column will always be centered.
-    // - "on-overflow", focusing a column will center it if it doesn't fit
-    //   together with the previously focused column.
     center-focused-column "never"
 
     preset-column-widths {
@@ -93,56 +70,27 @@ layout {
         on
         softness 30
 
-        // Spread expands the shadow.
         spread 5
 
-        // Offset moves the shadow relative to the window.
         offset x=0 y=5
 
-        // You can also change the shadow color and opacity.
         color "#0007"
     }
 
     struts {
-        // left 64
-        // right 64
-        // top 64
-        // bottom 64
     }
 }
 
-
-// This line starts waybar, a commonly used bar for Wayland compositors.
 spawn-sh-at-startup "qs -c noctalia-shell"
 spawn-sh-at-startup "mkdir -p ~/Screenshots/"
 
-spawn-sh-at-startup "~/apps/wpeui/wpeui --apply --nogui"
-
 hotkey-overlay {
-    // Uncomment this line to disable the "Important Hotkeys" pop-up at startup.
     skip-at-startup
 }
 
-
-// You can change the path where screenshots are saved.
-// A ~ at the front will be expanded to the home directory.
-// The path is formatted with strftime(3) to give you the screenshot date and time.
 screenshot-path "~/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 animations {
-    // Uncomment to turn off all animations.
-    // off
-
-    // Slow down all animations by this factor. Values below 1 speed them up instead.
-    // slowdown 3.0
-}
-
-window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
 }
 
 window-rule {
@@ -155,32 +103,9 @@ layer-rule {
     place-within-backdrop true
 }
 
-// Open the Firefox picture-in-picture player as floating by default.
 window-rule {
-    // This app-id regular expression will work for both:
-   // - host Firefox (app-id is "firefox")
-    // - Flatpak Firefox (app-id is "org.mozilla.firefox")
     match app-id=r#"firefox$"# title="^Picture-in-Picture$"
     open-floating true
-}
-
-// Example: block out two password managers from screen capture.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
-    match app-id=r#"^org\.gnome\.World\.Secrets$"#
-
-    block-out-from "screen-capture"
-
-    // Use this instead if you want them visible on third-party screenshot tools.
-    // block-out-from "screencast"
-}
-
-// Example: enable rounded corners for all windows.
-// (This example rule is commented out with a "/-" in front.)
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry true
 }
 
 binds {
@@ -212,8 +137,8 @@ binds {
     Mod+Q repeat=false { close-window; }
 
     Mod+Left  { focus-column-left; }
-    Mod+Down  { focus-window-down; }
-    Mod+Up    { focus-window-up; }
+    //Mod+Down  { focus-window-down; }
+    //Mod+Up    { focus-window-up; }
     Mod+Right { focus-column-right; }
 
     Mod+Ctrl+Left  { move-column-left; }
@@ -248,8 +173,8 @@ binds {
     Mod+Shift+Ctrl+K     { move-column-to-monitor-up; }
     Mod+Shift+Ctrl+L     { move-column-to-monitor-right; }
 
-    Mod+Shift+Down      { focus-workspace-down; }
-    Mod+Shift+Up        { focus-workspace-up; }
+    Mod+Down      { focus-workspace-down; }
+    Mod+Up        { focus-workspace-up; }
     Mod+U              { focus-workspace-down; }
     Mod+I              { focus-workspace-up; }
     Mod+Ctrl+Page_Down { move-column-to-workspace-down; }

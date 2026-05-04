@@ -43,7 +43,7 @@
         "autoHideDelay": 500,
         "autoShowDelay": 150,
         "backgroundOpacity": 0.93,
-        "barType": "floating",
+        "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 1,
         "contentPadding": 2,
@@ -114,8 +114,9 @@
             "left": [
                 {
                     "colorizeDistroLogo": false,
-                    "colorizeSystemIcon": "primary",
-                    "customIconPath": "/home/ruzbyte/Bilder/lilith_monochrome_clean.png",
+                    "colorizeSystemIcon": "none",
+                    "colorizeSystemText": "none",
+                    "customIconPath": "/home/ruzbyte/dotfiles/icons/lilith_monochrome_clean.png",
                     "enableColorization": true,
                     "icon": "noctalia",
                     "id": "ControlCenter",
@@ -223,6 +224,39 @@
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
                     "showPowerProfiles": false
+                },
+                {
+                    "defaultSettings": {
+                        "audioCodec": "opus",
+                        "audioSource": "default_output",
+                        "colorRange": "limited",
+                        "copyToClipboard": false,
+                        "customReplayDuration": "30",
+                        "directory": "",
+                        "filenamePattern": "recording_yyyyMMdd_HHmmss",
+                        "frameRate": "60",
+                        "hideInactive": false,
+                        "iconColor": "none",
+                        "quality": "very_high",
+                        "replayDuration": "30",
+                        "replayEnabled": false,
+                        "replayStorage": "ram",
+                        "resolution": "original",
+                        "restorePortalSession": false,
+                        "showCursor": true,
+                        "videoCodec": "h264",
+                        "videoSource": "portal"
+                    },
+                    "id": "plugin:screen-recorder"
+                },
+                {
+                    "defaultSettings": {
+                        "currentIconName": "world-download",
+                        "hideOnZero": false,
+                        "updateIntervalMinutes": 30,
+                        "updateTerminalCommand": "foot -e"
+                    },
+                    "id": "plugin:update-count"
                 },
                 {
                     "defaultSettings": {
@@ -383,7 +417,7 @@
         "animationDisabled": false,
         "animationSpeed": 1.1,
         "autoStartAuth": false,
-        "avatarImage": "/home/ruzbyte/Bilder/2cf13c9b16e68774aeaaa12f812d0f0e25a56548.gif",
+        "avatarImage": "/home/ruzbyte/dotfiles/icons/lilith_icon.gif",
         "boxRadiusRatio": 1,
         "clockFormat": "HH:mm ",
         "clockStyle": "custom",

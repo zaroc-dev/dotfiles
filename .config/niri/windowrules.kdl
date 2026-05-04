@@ -8,12 +8,24 @@ window-rule {
 }
 
 window-rule {
-    match app-id="zen-browser"
-    open-maximized false
+    match app-id="vesktop"
+    match app-id="brave"
+    match app-id="code"
+    match app-id="nautilus"
+    match app-id="steam"
+
+    draw-border-with-background false
+    opacity 0.8
+    open-maximized true
     
     background-effect {
 	blur true
     }
+}
+
+window-rule {
+    match title="^Friends List*"
+    open-floating true
 }
 
 window-rule {

@@ -1,10 +1,12 @@
 [user]
     name = "ruzbyte"
     email = "arthuraktamirov@gmail.com"
-    signingKey = ~/.ssh/github_ecdsa
+    signingKey = ~/.ssh/bw_github_sec
 
 [gpg]
     format = ssh
+[init]
+    defaultBranch = "main"
 
 [core]
     compression = 9
