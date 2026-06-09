@@ -17,6 +17,8 @@ HISTFILE=~/.zsh_history
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z1-2}={A-Z1-2}'
 
+alias cd='z'
+alias cl='zi'
 alias ls='eza --icons --group-directories-first'
 alias ll='eza -l --icons --group-directories-first'
 alias la='eza -a --icons'

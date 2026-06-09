@@ -1,6 +1,12 @@
 .git
 scripts
+.venv
 
 install.sh
+install.py
 install.ps1
+pyproject.toml
+uv.lock
 README.md
+
+__pychache__/

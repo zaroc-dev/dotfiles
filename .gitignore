@@ -1,1 +1,4 @@
 /.config/noctalia/plugins/
+.venv/
+__pycache__/
+*.py[cod]
