@@ -26,6 +26,7 @@ return {
                 "yaml",
                 "rust",
                 "c_sharp",
+                "nix",
             },
             auto_install = true,
             highlight = {

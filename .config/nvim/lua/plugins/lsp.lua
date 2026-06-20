@@ -34,6 +34,7 @@ return {
                 "omnisharp", -- C#
                 "lua_ls", -- Lua
                 "ruff",
+                "nil_ls", -- Nix
             }
 
             require("mason-lspconfig").setup({
