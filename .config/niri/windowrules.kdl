@@ -13,11 +13,13 @@ window-rule {
     match app-id="code"
     match app-id="nautilus"
     match app-id="steam"
+    match app-id="zen"
+    match app-id="Spotify"
 
     draw-border-with-background false
     opacity 0.8
     open-maximized true
-    
+
     background-effect {
 	blur true
     }

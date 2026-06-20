@@ -81,7 +81,7 @@ layout {
     }
 }
 
-spawn-sh-at-startup "qs -c noctalia-shell"
+spawn-sh-at-startup "noctalia-shell"
 spawn-sh-at-startup "mkdir -p ~/Screenshots/"
 
 hotkey-overlay {
@@ -113,15 +113,15 @@ binds {
 
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
-    Mod+Space hotkey-overlay-title="Run an Application: Shell" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
+    Mod+Space hotkey-overlay-title="Run an Application: Shell" { spawn-sh "noctalia-shell ipc call launcher toggle"; }
     Mod+E hotkey-overlay-title="Open File Explorer" { spawn "nautilus"; }
-    Super+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
-    Super+Comma hotkey-overlay-title="Show Settings" { spawn-sh "qs -c noctalia-shell ipc call settings toggle"; }
+    Super+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
+    Super+Comma hotkey-overlay-title="Show Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Super+C hotkey-overlay-title="Open Code Editor" { spawn "code"; }
     Super+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
     Mod+Shift+S hotkey-overlay-title="Take screenshot" { screenshot; }
-    Mod+V hotkey-overlay-title="Run an Application: Applauncher" { spawn-sh "qs -c noctalia-shell ipc call launcher clipboard"; }
-    Mod+A hotkey-overlay-title="Open control center" { spawn-sh "qs -c noctalia-shell ipc call controlCenter toggle"; }
+    Mod+V hotkey-overlay-title="Run an Application: Applauncher" { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
+    Mod+A hotkey-overlay-title="Open control center" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
     Super+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+"; }
