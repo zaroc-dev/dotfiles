@@ -9,4 +9,10 @@ pyproject.toml
 uv.lock
 README.md
 
+# Nix configuration (built via `nixos-rebuild --flake`, not stowed)
+flake.nix
+flake.lock
+modules
+assets
+
 __pychache__/
