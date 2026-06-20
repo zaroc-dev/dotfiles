@@ -1,5 +1,5 @@
 {
-  description = "new ruzbyte testconfig";
+  description = "ruzbyteOS";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
