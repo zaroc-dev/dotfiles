@@ -1,4 +1,7 @@
 /.config/noctalia/plugins/
+# Noctalia-generated kitty theme (volatile)
+/.config/kitty/current-theme.conf
+/.config/kitty/themes/
 .venv/
 __pycache__/
 *.py[cod]

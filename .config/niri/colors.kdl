@@ -6,15 +6,7 @@ layout {
         // How many logical pixels the ring extends out from the windows.
         width 2
 
-        // Color of the ring on the active monitor.
-        
-        //active-color "#7fc8ff"
-        // inactive-color "#505050"
-
         active-gradient from="#7aa2f7" to="#bb9af7" angle=45
         inactive-gradient from="#1a1b26" to="#808080" angle=45 relative-to="workspace-view"
     }
 }
-
-
-

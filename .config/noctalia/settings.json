@@ -224,6 +224,15 @@
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
                     "showPowerProfiles": false
+                },
+                {
+                    "id": "plugin:privacy-indicator"
+                },
+                {
+                    "id": "plugin:update-count"
+                },
+                {
+                    "id": "plugin:screen-recorder"
                 }
             ]
         }
@@ -253,7 +262,7 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generationMethod": "tonal-spot",
+        "generationMethod": "fruit-salad",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "monitorForColors": "",
@@ -694,7 +703,7 @@
     },
     "wallpaper": {
         "automationEnabled": false,
-        "directory": "/home/ruzbyte/wallpapers",
+        "directory": "/home/ruzbyte/dotfiles/wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
         "favorites": [
@@ -728,7 +737,7 @@
         "useOriginalImages": false,
         "useSolidColor": false,
         "useWallhaven": false,
-        "viewMode": "browse",
+        "viewMode": "single",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
