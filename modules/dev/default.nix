@@ -2,6 +2,7 @@
   flake.nixosModules.development = { pkgs, ... }: {
     imports = [
       self.nixosModules.android
+      self.nixosModules.flutter
       self.nixosModules.cli-tools
       self.nixosModules.javascript
       self.nixosModules.python
@@ -12,6 +13,7 @@
 
     environment.systemPackages = with pkgs; [
       zed-editor
+      vscode
       nil
       nixfmt
       nixd
