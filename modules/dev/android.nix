@@ -4,6 +4,39 @@
       pkgs.android-tools
       pkgs.android-studio
     ];
+
+    programs.nix-ld.enable = true;
+    # The Android SDK's prebuilt tools (adb, aapt2, the emulator + its bundled
+    # qemu, …) that Android Studio downloads into ~/Android/Sdk are
+    # generic-Linux ELFs; nix-ld provides the loader + libraries so they run.
+    programs.nix-ld.libraries = with pkgs; [
+      stdenv.cc.cc.lib # libstdc++
+      zlib
+
+      glib
+      nss
+      nspr
+      expat
+      dbus
+      fontconfig
+      freetype
+      alsa-lib
+      libpulseaudio
+      libGL
+      libdrm
+      libxkbcommon
+      libX11
+      libXext
+      libXcursor
+      libXrandr
+      libXi
+      libXcomposite
+      libXdamage
+      libxfixes
+      libxrender
+      libxtst
+      libxcb
+    ];
   };
 
   perSystem = { pkgs, ... }: {
