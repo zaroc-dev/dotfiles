@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.gaming = { pkgs, ... }: {
+  flake.nixosModules.steam = { pkgs, ... }: {
     programs.steam.enable = true;
     hardware.steam-hardware.enable = true;
 
@@ -11,10 +11,6 @@
       protontricks
       wineWow64Packages.stagingFull
       winetricks
-
-      # Emulators
-      shadps4
-      ryubing
     ];
 
   };

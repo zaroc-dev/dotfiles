@@ -1,14 +1,13 @@
 { self, inputs, ... }: {
 
-  flake.nixosConfigurations.hiyuki = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.acheron = inputs.nixpkgs.lib.nixosSystem {
     modules = [
-      self.nixosModules.hiyukiConfiguration
+      self.nixosModules.acheronConfiguration
       self.nixosModules.boot
       self.nixosModules.sddm
       self.nixosModules.desktop
       self.nixosModules.development
       self.nixosModules.steam
-      self.nixosModules.emulators
       self.nixosModules.audio
       self.nixosModules.terminal
       self.nixosModules.home
