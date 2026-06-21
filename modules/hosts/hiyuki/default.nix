@@ -16,6 +16,7 @@
       self.nixosModules.browser
       self.nixosModules.misc
       self.nixosModules.ssh
+      self.nixosModules.fonts
     ];
   };
 }

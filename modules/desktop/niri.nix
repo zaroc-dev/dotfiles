@@ -9,6 +9,9 @@
       cliphist
       noctalia-shell
       xwayland-satellite
+      nautilus
+
+      fuzzel
     ];
   };
 }

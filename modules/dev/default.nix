@@ -9,6 +9,7 @@
       self.nixosModules.dotnet
       self.nixosModules.java
       self.nixosModules.git
+      self.nixosModules.docker
     ];
 
     environment.systemPackages = with pkgs; [

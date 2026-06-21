@@ -1,0 +1,102 @@
+{ self, inputs, ... }: {
+  flake.homeModules.kde =
+    { ... }:
+    let
+      defaultWallpaper = self + /wallpapers/alpha_pgr.jpg;
+    in
+    {
+      imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
+
+      programs.plasma = {
+        enable = true;
+        workspace = {
+          iconTheme = "Papirus-Dark";
+          clickItemTo = "select";
+          lookAndFeel = "org.kde.breezedark.desktop";
+          colorScheme = "BreezeDark";
+          wallpaper = defaultWallpaper;
+        };
+
+        shortcuts = {
+          kwin = {
+            "Overview" = "Meta+Tab";
+            "Window Maximize" = "Meta+Up";
+            "Window Quick Tile Left" = "Meta+Left";
+            "Window Quick Tile Right" = "Meta+Right";
+            "Switch One Desktop to the Right" = "Meta+Shift+Right";
+            "Switch One Desktop to the Left" = "Meta+Shift+Left";
+          };
+          ksmserver."Lock Session" = "Meta+L";
+        };
+        hotkeys.commands = {
+          launch-terminal = {
+            name = "Launch Kitty";
+            key = "Meta+Return";
+            command = "kitty";
+          };
+          launch-browser = {
+            name = "Launch Browser";
+            key = "Meta+B";
+            command = "zen";
+          };
+          launch-fuzzel = {
+            name = "Launch Applauncher";
+            key = "Meta+Space";
+            command = "fuzzel";
+          };
+        };
+
+        kwin = {
+          edgeBarrier = 0; # im losing it when my cursor stops between monitors
+        };
+
+        panels = [
+          {
+            location = "bottom";
+            floating = false;
+            screen = "all";
+            height = 44;
+            widgets = [
+              {
+                name = "org.kde.plasma.kickoff";
+                config.General = {
+                  icon = "nix-snowflake-white";
+                  alphaSort = true;
+                };
+              }
+              "org.kde.plasma.marginsseparator"
+              "org.kde.plasma.pager"
+              "org.kde.plasma.spacer"
+              {
+                name = "org.kde.plasma.icontasks";
+                config.General.launchers = [
+                  "applications:org.kde.dolphin.desktop"
+                  "applications:vesktop.desktop"
+                  "applications:spotify.desktop"
+                  "applications:steam.desktop"
+                  "applications:zen.desktop"
+                  "applications:systemsettings.desktop"
+                ];
+              }
+              "org.kde.plasma.spacer"
+              "org.kde.plasma.systemtray"
+              {
+                name = "org.kde.plasma.digitalclock";
+                config.Appearance.showDate = true;
+              }
+            ];
+          }
+        ];
+
+        kscreenlocker = {
+          autoLock = true;
+          lockOnResume = true;
+          timeout = 30;
+        };
+
+        configFile = {
+          "dolphinrc"."Settings"."HiddenFilesShown" = true;
+        };
+      };
+    };
+}
