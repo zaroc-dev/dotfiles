@@ -58,6 +58,19 @@
             height = 44;
             widgets = [
               {
+                name = "luisbocanegra.panel.colorizer";
+                config.General = {
+                  hideWidget = true;
+                  globalSettings = builtins.toJSON {
+                    nativePanel.background = {
+                      enabled = false;
+                      opacity = 0;
+                      shadow = true;
+                    };
+                  };
+                };
+              }
+              {
                 name = "org.kde.plasma.kickoff";
                 config.General = {
                   icon = "nix-snowflake-white";
