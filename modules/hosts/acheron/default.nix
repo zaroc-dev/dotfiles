@@ -13,7 +13,8 @@
       self.nixosModules.apps
       self.nixosModules.ssh
       self.nixosModules.fonts
-
+      self.nixosModules.bluetooth
+      
       # home modules
       self.nixosModules.home
       self.nixosModules.home-desktop

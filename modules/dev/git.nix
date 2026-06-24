@@ -3,9 +3,14 @@
     home.file.".config/git/commit.template" = {
       source = self + /.config/git/commit.template;
     };
+    home.file.".config/git/allowed_signers" = {
+      source = self + /.config/git/allowed_signers;
+    };
   };
 
-  flake.nixosModules.git = { ... }: {
+  flake.nixosModules.git = { pkgs, ... }: {
+    environment.systemPackages = [ pkgs.gh ];
+
     programs.git = {
       enable = true;
 
@@ -20,9 +25,10 @@
         };
 
         gpg.format = "ssh";
+        gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
 
         commit = {
-          gpgsing = true;
+          gpgsign = true;
           template = "~/.config/git/commit.template";
         };
 

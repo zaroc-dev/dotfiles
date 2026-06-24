@@ -11,6 +11,7 @@
       self.nixosModules.emulators
       self.nixosModules.audio
       self.nixosModules.terminal
+      self.nixosModules.bluetooth
 
       # Apps
       self.nixosModules.apps

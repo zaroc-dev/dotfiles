@@ -11,6 +11,8 @@
       protontricks
       wineWow64Packages.stagingFull
       winetricks
+
+      prismlauncher
     ];
 
   };
