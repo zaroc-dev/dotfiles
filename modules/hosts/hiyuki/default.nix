@@ -11,10 +11,9 @@
       self.nixosModules.emulators
       self.nixosModules.audio
       self.nixosModules.terminal
-      self.nixosModules.music
-      self.nixosModules.chat
-      self.nixosModules.browser
-      self.nixosModules.misc
+
+      # Apps
+      self.nixosModules.apps
       self.nixosModules.ssh
       self.nixosModules.fonts
 

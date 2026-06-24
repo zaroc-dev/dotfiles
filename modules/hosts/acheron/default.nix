@@ -10,10 +10,7 @@
       self.nixosModules.steam
       self.nixosModules.audio
       self.nixosModules.terminal
-      self.nixosModules.music
-      self.nixosModules.chat
-      self.nixosModules.browser
-      self.nixosModules.misc
+      self.nixosModules.apps
       self.nixosModules.ssh
       self.nixosModules.fonts
 
