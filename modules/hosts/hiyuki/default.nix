@@ -12,6 +12,7 @@
       self.nixosModules.audio
       self.nixosModules.terminal
       self.nixosModules.bluetooth
+      self.nixosModules.vpn
 
       # Apps
       self.nixosModules.apps

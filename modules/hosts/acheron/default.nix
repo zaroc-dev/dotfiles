@@ -14,7 +14,8 @@
       self.nixosModules.ssh
       self.nixosModules.fonts
       self.nixosModules.bluetooth
-      
+      self.nixosModules.vpn
+
       # home modules
       self.nixosModules.home
       self.nixosModules.home-desktop
