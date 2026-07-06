@@ -1,20 +1,44 @@
 { self, inputs, ... }: {
   flake.homeModules.kde =
-    { ... }:
+    { pkgs, ... }:
     let
       defaultWallpaper = self + /wallpapers/alpha_pgr.jpg;
+      catppuccinKde = pkgs.catppuccin-kde.override {
+        flavour = [ "mocha" ];
+        accents = [ "mauve" ];
+      };
+      catppuccinKvantum = pkgs.catppuccin-kvantum.override {
+        variant = "mocha";
+        accent = "mauve";
+      };
     in
     {
       imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
+
+      home.packages = [
+        catppuccinKde
+        catppuccinKvantum
+        pkgs.kdePackages.qtstyleplugin-kvantum
+        pkgs.libsForQt5.qtstyleplugin-kvantum
+      ];
+
+      xdg.configFile."Kvantum/kvantum.kvconfig".text = ''
+        [General]
+        theme=catppuccin-mocha-mauve
+      '';
 
       programs.plasma = {
         enable = true;
         workspace = {
           iconTheme = "Papirus-Dark";
           clickItemTo = "select";
-          lookAndFeel = "org.kde.breezedark.desktop";
-          colorScheme = "BreezeDark";
+          lookAndFeel = "Catppuccin-Mocha-Mauve";
+          colorScheme = "CatppuccinMochaMauve";
           wallpaper = defaultWallpaper;
+          windowDecorations = {
+            library = "org.kde.breeze";
+            theme = "Breeze";
+          };
         };
 
         shortcuts = {
@@ -109,6 +133,7 @@
 
         configFile = {
           "dolphinrc"."Settings"."HiddenFilesShown" = true;
+          "kdeglobals"."KDE"."widgetStyle" = "kvantum";
         };
       };
     };
