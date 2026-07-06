@@ -1,5 +1,5 @@
 { ... }: {
-  flake.nixosModules.misc = { pkgs, ... }: {
+  flake.nixosModules.business = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       thunderbird
     ];
