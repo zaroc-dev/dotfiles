@@ -13,6 +13,7 @@
       winetricks
 
       prismlauncher
+      osu-lazer-bin
     ];
 
   };

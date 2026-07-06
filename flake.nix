@@ -31,6 +31,11 @@
 
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
     qylock.url = "github:Darkkal44/qylock";
+
+    luminotes = {
+      url = "github:ruzbyte/luminotes";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

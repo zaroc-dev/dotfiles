@@ -1,0 +1,30 @@
+// Laptop Monitors
+
+output "eDP-1" {
+    mode "1920x1080@60.00"
+    scale 1.0
+}
+
+output "DP-5" {
+	mode "2560x1440@74.599"
+	position x=0 y=0
+        focus-at-startup
+}
+
+output "DP-4" {
+	mode "2560x1440@74.599"
+	position x=-2560 y=0
+}
+
+// Desktop Monitors
+
+output "HDMI-A-1" {
+    mode "1920x1080@74.973"
+    position x=-1920 y=0
+}
+
+output "DP-1" {
+    mode "1920x1080@144"
+    position x=0 y=0
+    focus-at-startup
+}

@@ -87,6 +87,26 @@
         "type": "github"
       }
     },
+    "luminotes": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1783292284,
+        "narHash": "sha256-uRv5xUd7DUuNevNOq+WzkPtGTssGMsE4bxG8X+89EKc=",
+        "owner": "ruzbyte",
+        "repo": "luminotes",
+        "rev": "4e2b4c9e69a5349306683250603375c5b4600e84",
+        "type": "github"
+      },
+      "original": {
+        "owner": "ruzbyte",
+        "repo": "luminotes",
+        "type": "github"
+      }
+    },
     "nixos-wsl": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -140,11 +160,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1781577229,
-        "narHash": "sha256-lrp67w8AulE9Ks53n27I45ADSzbOCn4H+CNW1Ck8B+8=",
+        "lastModified": 1783224372,
+        "narHash": "sha256-8i/87eeoqiGE4yOTjwSA3Eh/ziJRQEmd/unYU+K27sk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "567a49d1913ce81ac6e9582e3553dd90a955875f",
+        "rev": "d407951447dcd00442e97087bf374aad70c04cea",
         "type": "github"
       },
       "original": {
@@ -233,6 +253,7 @@
         "flake-parts": "flake-parts",
         "home-manager": "home-manager",
         "import-tree": "import-tree",
+        "luminotes": "luminotes",
         "nixos-wsl": "nixos-wsl",
         "nixpkgs": "nixpkgs_2",
         "plasma-manager": "plasma-manager",

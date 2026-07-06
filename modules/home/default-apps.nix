@@ -12,5 +12,12 @@
         "text/plain" = "dev.zed.Zed.desktop";
       };
     };
+
+    # desktop-specific overrides: consulted before mimeapps.list when
+    # XDG_CURRENT_DESKTOP matches the file's prefix
+    xdg.configFile."niri-mimeapps.list".text = ''
+      [Default Applications]
+      inode/directory=org.kde.dolphin.desktop
+    '';
   };
 }

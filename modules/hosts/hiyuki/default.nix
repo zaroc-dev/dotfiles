@@ -13,7 +13,7 @@
       self.nixosModules.terminal
       self.nixosModules.bluetooth
       self.nixosModules.vpn
-
+      self.nixosModules.input
       # Apps
       self.nixosModules.apps
       self.nixosModules.ssh
