@@ -52,6 +52,7 @@
           "networkmanager"
           "wheel"
           "kvm"
+
         ];
         packages = with pkgs; [
           kdePackages.kate

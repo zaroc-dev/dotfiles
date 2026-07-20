@@ -1,13 +1,14 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
+        lazy = false,
         build = ":TSUpdate",
-        branch = "master",
+        branch = "main",
         dependencies = {
             "windwp/nvim-ts-autotag",
         },
-        opts = {
-            ensure_installed = {
+        config = function()
+            local languages = {
                 "bash",
                 "c",
                 "html",
@@ -27,22 +28,22 @@ return {
                 "rust",
                 "c_sharp",
                 "nix",
-            },
-            auto_install = true,
-            highlight = {
-                enable = true,
-                additional_vim_regex_highlighting = false,
-            },
-            autotag = {
-                enable = true,
-            },
-            indent = {
-                enable = true,
-            },
-        },
-        config = function(_, opts)
-            require("nvim-treesitter.configs").setup(opts)
+            }
+
+            require("nvim-treesitter").setup({
+                install_dir = vim.fn.stdpath("data") .. "/treesitter",
+            })
+            require("nvim-treesitter").install(languages):wait(300000)
+            require("nvim-ts-autotag").setup()
+
             vim.treesitter.language.register("svelte", "svelte")
+
+            vim.api.nvim_create_autocmd("FileType", {
+                pattern = "*",
+                callback = function(event)
+                    pcall(vim.treesitter.start, event.buf)
+                end,
+            })
         end,
     },
 }

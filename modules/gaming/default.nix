@@ -15,6 +15,8 @@
       prismlauncher
       osu-lazer-bin
     ];
-
+    users.users."ruzbyte" = {
+      extraGroups = [ "input" ];
+    };
   };
 }

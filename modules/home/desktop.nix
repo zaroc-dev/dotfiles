@@ -10,6 +10,7 @@
         self.homeModules.kde
         self.homeModules.icons
         self.homeModules.defaultApps
+        self.homeModules.zenBrowser
       ];
     };
   };

@@ -31,6 +31,7 @@
         self.homeModules.starship
         self.homeModules.dotnet
         self.homeModules.git
+        self.homeModules.rust
       ];
     };
   };

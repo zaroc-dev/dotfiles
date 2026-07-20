@@ -4,7 +4,6 @@ include "colors.kdl"
 include "windowrules.kdl"
 include "monitor.kdl"
 
-
 environment {
     QT_QPA_PLATFORMTHEME "gtk3"
 }
@@ -24,6 +23,7 @@ cursor {
 input {
     keyboard {
         xkb {
+            layout "de"
         }
         numlock
     }
@@ -109,7 +109,7 @@ binds {
     Super+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn-sh "noctalia-shell ipc call lockScreen lock"; }
     Super+Comma hotkey-overlay-title="Show Settings" { spawn-sh "noctalia-shell ipc call settings toggle"; }
     Super+C hotkey-overlay-title="Open Code Editor" { spawn "code"; }
-    Super+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
+    Super+B hotkey-overlay-title="Open Browser" { spawn "zen"; }
     Mod+Shift+S hotkey-overlay-title="Take screenshot" { screenshot; }
     Mod+V hotkey-overlay-title="Run an Application: Applauncher" { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
     Mod+A hotkey-overlay-title="Open control center" { spawn-sh "noctalia-shell ipc call controlCenter toggle"; }
@@ -324,6 +324,9 @@ binds {
 
 debug {
     honor-xdg-activation-with-invalid-serial
+    // Work around corrupted primary-plane scanout on NVIDIA. Without this,
+    // the HDMI output can show the frame in only one quarter of the panel.
+    disable-direct-scanout
 }
 
 include "./noctalia.kdl"

@@ -11,8 +11,11 @@ return {
             preset = "classic", -- oder "modern" / "helix"
             spec = {
                 -- Hier geben wir den Gruppen Namen (z.B. <leader>f für "Find")
-                { "<leader>f", group = "Find / Telescope" },
-                { "<leader>c", group = "Code / LSP" },
+                { "<leader>f", group = "Find" },
+                { "<leader>c", group = "Code" },
+                { "<leader>g", group = "Git" },
+                { "<leader>x", group = "Diagnostics" },
+                { "<leader>t", group = "Toggle / Terminal" },
                 { "<leader>r", group = "Rename" },
                 { "<leader>y", group = "Yank (Clipboard)" },
                 { "<leader>d", group = "Delete (No Register)" },

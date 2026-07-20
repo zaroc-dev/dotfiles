@@ -6,8 +6,7 @@ return {
         cmd = { "ConformInfo" },
         keys = {
             {
-                -- Optional: Manueller Shortcut zum Formatieren (Leader + f)
-                "<leader>f",
+                "<leader>cf",
                 function()
                     require("conform").format({ async = true, lsp_fallback = true })
                 end,
@@ -30,6 +29,8 @@ return {
                 json = { "prettier" },
                 yaml = { "prettier" },
                 markdown = { "prettier" },
+                markdown_inline = { "prettier" },
+                nix = { "nixfmt" },
                 -- Python
                 python = { "ruff" },
                 -- C#

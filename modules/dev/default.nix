@@ -11,6 +11,7 @@
       self.nixosModules.git
       self.nixosModules.docker
       self.nixosModules.ides
+      self.nixosModules.rust
     ];
   };
 }

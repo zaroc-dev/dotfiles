@@ -1,10 +1,21 @@
 return {
     "nvim-telescope/telescope.nvim",
-    branch = "0.1.x",
+    branch = "master",
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
     config = function()
+        require("telescope").setup({
+            defaults = {
+                mappings = {
+                    i = { ["<C-j>"] = "move_selection_next", ["<C-k>"] = "move_selection_previous" },
+                },
+            },
+            pickers = {
+                find_files = { hidden = true },
+            },
+        })
+
         local builtin = require("telescope.builtin")
 
         -- Keymaps für Telescope
@@ -19,5 +30,10 @@ return {
 
         -- <leader>fh = Durchsuche die Neovim-Hilfe
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help tags" })
+        vim.keymap.set("n", "<leader>fr", builtin.oldfiles, { desc = "Recent files" })
+        vim.keymap.set("n", "<leader>fc", builtin.commands, { desc = "Commands" })
+        vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "Document symbols" })
+        vim.keymap.set("n", "<leader>fS", builtin.lsp_dynamic_workspace_symbols, { desc = "Workspace symbols" })
+        vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "Search buffer" })
     end,
 }
