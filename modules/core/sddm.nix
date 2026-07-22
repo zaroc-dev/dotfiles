@@ -1,6 +1,6 @@
 { inputs, ... }: {
     flake.nixosModules.sddm = { ... } : {
-        imports = [ inputs.qylock.nixosModules.default ];      
+        imports = [ inputs.qylock.nixosModules.default ];
         services.displayManager.sddm.enable = true;
 
         programs.qylock = {
@@ -9,5 +9,12 @@
             sddm.enable = true;
             quickshell.enable = false;
         };
+
+        services.displayManager.autoLogin = {
+          enable = true;
+          user = "ruzbyte";
+        };
+
+        services.displayManager.defaultSession = "niri";
     };
 }

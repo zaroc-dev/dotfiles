@@ -14,8 +14,8 @@
       self.nixosModules.bluetooth
       self.nixosModules.vpn
       self.nixosModules.input
+      self.nixosModules.network
 
-      self.nixosModules.ai
       # Apps
       self.nixosModules.apps
       self.nixosModules.ssh

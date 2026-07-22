@@ -8,10 +8,10 @@
         self.nixosModules.hiyukiHardware
         self.nixosModules.nvidia
       ];
-
-      networking.hostName = "hiyuki";
-
-      networking.networkmanager.enable = true;
+      networking = {
+        hostName = "hiyuki";
+        networkmanager.enable = true;
+      };
 
       nix.settings.experimental-features = [
         "nix-command"

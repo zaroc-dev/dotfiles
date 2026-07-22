@@ -1,11 +1,23 @@
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -r "$HOME/.local/bin/env" ]] && source "$HOME/.local/bin/env"
+export PATH="$HOME/.local/bin:$PATH"
 
-eval "$(starship init zsh)"
-eval "$(zoxide init zsh)"
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+[[ -s "$BUN_INSTALL/_bun" ]] && source "$BUN_INSTALL/_bun"
+
+[[ -r /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+command -v starship >/dev/null && eval "$(starship init zsh)"
+command -v zoxide >/dev/null && eval "$(zoxide init zsh)"
 
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
+[ -f /usr/share/doc/fzf/examples/completion.zsh ] && source /usr/share/doc/fzf/examples/completion.zsh
 
 
 setopt AUTO_CD              # Ordnername tippen genügt zum Wechseln
@@ -17,13 +29,24 @@ HISTFILE=~/.zsh_history
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z1-2}={A-Z1-2}'
 
-alias cd='z'
-alias cl='zi'
-alias ls='eza --icons --group-directories-first'
-alias ll='eza -l --icons --group-directories-first'
-alias la='eza -a --icons'
-alias lla='eza -la --icons'
-alias tree='eza --tree --icons'
+if command -v zoxide >/dev/null; then
+  alias cd='z'
+  alias cl='zi'
+fi
+
+if command -v eza >/dev/null; then
+  alias ls='eza --icons --group-directories-first'
+  alias ll='eza -l --icons --group-directories-first'
+  alias la='eza -a --icons'
+  alias lla='eza -la --icons'
+  alias tree='eza --tree --icons'
+fi
+
+if command -v bat >/dev/null; then
+  alias cat='bat'
+elif command -v batcat >/dev/null; then
+  alias cat='batcat'
+fi
 
 alias gs='git status'
 alias ga='git add'
@@ -53,14 +76,12 @@ alias hyprconf='nvim ~/dotfiles/.config/hypr/'
 alias niriconf='nvim ~/dotfiles/.config/niri/'
 alias zsrc='source ~/.zshrc'
 
-fastfetch
+command -v fastfetch >/dev/null && fastfetch
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 
-# bun completions
-[ -s "/home/ruzbyte/.bun/_bun" ] && source "/home/ruzbyte/.bun/_bun"
-
-export PATH="$HOME/.local/bin:$PATH"
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# Syntax highlighting must be sourced after all widgets and bindings.
+[[ -r /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -r /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
