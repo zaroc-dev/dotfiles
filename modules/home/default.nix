@@ -26,7 +26,9 @@
       useUserPackages = true;
       extraSpecialArgs = { inherit self inputs; };
       users.ruzbyte.imports = [
+        inputs.nixvim.homeModules.nixvim
         self.homeModules.ruzbyte
+        self.homeModules.nvim
         self.homeModules.zsh
         self.homeModules.starship
         self.homeModules.dotnet
