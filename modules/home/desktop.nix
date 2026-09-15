@@ -10,7 +10,8 @@
         self.homeModules.kde
         self.homeModules.icons
         self.homeModules.defaultApps
-        self.homeModules.zenBrowser
+        self.homeModules.brave
+        self.homeModules.vscode
       ];
     };
   };

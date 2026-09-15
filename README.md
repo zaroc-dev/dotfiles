@@ -28,3 +28,9 @@ sudo nixos-rebuild switch --flake ~/dotfiles#hiyuki
 
 Some wallpapers are directly shipped with the dotfiles, after stowing the dotfiles
 these are located at `~/wallpapers`
+
+## Updating Desktop Apps
+
+```sh
+nix run .#update-desktop-apps
+```

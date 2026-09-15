@@ -14,7 +14,6 @@
 
     environment.systemPackages = with pkgs; [
       zed-editor
-      vscode
       google-chrome
     ];
   };

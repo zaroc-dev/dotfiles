@@ -60,7 +60,7 @@
           launch-browser = {
             name = "Launch Browser";
             key = "Meta+B";
-            command = "zen";
+            command = "brave";
           };
           launch-fuzzel = {
             name = "Launch Applauncher";
@@ -110,7 +110,7 @@
                   "applications:vesktop.desktop"
                   "applications:spotify.desktop"
                   "applications:steam.desktop"
-                  "applications:zen.desktop"
+                  "applications:brave-browser.desktop"
                   "applications:systemsettings.desktop"
                 ];
               }

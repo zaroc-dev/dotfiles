@@ -46,13 +46,13 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "chatgpt-desktop";
-  version = "26.831.20005";
+  version = "26.903.61454";
 
   src = fetchurl {
     # OpenAI currently exposes the RPM through a mutable `latest` URL. The
     # fixed hash keeps this derivation reproducible and makes updates explicit.
     url = "https://persistent.oaistatic.com/codex-app-prod/linux/rpm/latest/chatgpt.x86_64.rpm";
-    hash = "sha256-ZfqYtDv27RnAZEpkgfke8zIgm0e8rmxeswYrhFlup20=";
+    hash = "sha256-QvWilN+o4C0QJmEzl4qCy8aGJpeutgnCqJCXT5YW7LI=";
   };
 
   nativeBuildInputs = [

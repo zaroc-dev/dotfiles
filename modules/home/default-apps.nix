@@ -4,10 +4,10 @@
       enable = true;
 
       defaultApplications = {
-        "text/html" = "zen.desktop";
-        "x-scheme-handler/http" = "zen.desktop";
-        "x-scheme-handler/https" = "zen.desktop";
-        "application/pdf" = "zen.desktop";
+        "text/html" = "brave-browser.desktop";
+        "x-scheme-handler/http" = "brave-browser.desktop";
+        "x-scheme-handler/https" = "brave-browser.desktop";
+        "application/pdf" = "brave-browser.desktop";
         "inode/directory" = "yazi.desktop";
         "text/plain" = "dev.zed.Zed.desktop";
       };

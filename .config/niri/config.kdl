@@ -109,9 +109,9 @@ binds {
     Mod+Comma { spawn-sh "noctalia msg settings-toggle"; }
     Alt+Tab { spawn-sh "noctalia msg window-switcher"; }
     Mod+C hotkey-overlay-title="Open Code Editor" { spawn "code"; }
-    Mod+B hotkey-overlay-title="Open Browser" { spawn "zen"; }
+    Mod+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
     Mod+Shift+S hotkey-overlay-title="Take screenshot" { screenshot; }
-    Mod+V hotkey-overlay-title="Run an Application: Applauncher" { spawn-sh "noctalia-shell ipc call launcher clipboard"; }
+    Mod+V hotkey-overlay-title="Run an Application: Applauncher" { spawn-sh "noctalia msg panel-toggle clipboard"; }
     Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
 
