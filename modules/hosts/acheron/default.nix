@@ -8,6 +8,7 @@
       self.nixosModules.desktop
       self.nixosModules.development
       self.nixosModules.steam
+      self.nixosModules.osu
       self.nixosModules.audio
       self.nixosModules.terminal
       self.nixosModules.apps

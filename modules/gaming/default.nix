@@ -17,7 +17,6 @@
       winetricks
 
       prismlauncher
-      # osu-lazer-bin
     ];
     users.users."zaroc" = {
       extraGroups = [ "input" ];
