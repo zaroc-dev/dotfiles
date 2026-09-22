@@ -11,6 +11,7 @@
         self.homeModules.icons
         self.homeModules.defaultApps
         self.homeModules.brave
+        self.homeModules.webapps
         self.homeModules.vscode
       ];
     };
