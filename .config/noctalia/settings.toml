@@ -96,6 +96,11 @@ widget_order = [ "lockscreen-login-box@DP-1", "lockscreen-login-box@HDMI-A-1" ]
 
 [shell]
 screen_time_enabled = true
+setup_wizard_enabled = false
+
+[shell.screenshot]
+directory = "/home/zaroc/Screenshots"
+filename_pattern = "Screenshot from %Y-%m-%d %H-%M-%S"
 
 [theme]
 community_palette = "Oxocarbon"
@@ -108,16 +113,17 @@ wallpaper_scheme = "m3-tonal-spot"
     community_ids = [ "spicetify", "zen-browser", "zed" ]
 
 [wallpaper]
-directory = "/home/zaroc/dotfiles/wallpapers"
+directory = "/home/zaroc/wallpapers"
+enabled = true
 
     [wallpaper.default]
-    path = "/home/zaroc/dotfiles/wallpapers/20241003_153003.jpg"
+    path = "/home/zaroc/wallpapers/raiden.shogun.jpg"
 
     [wallpaper.last]
-    path = "/home/zaroc/dotfiles/wallpapers/alpha_pgr.jpg"
+    path = "/home/zaroc/wallpapers/alpha_pgr.jpg"
 
     [wallpaper.monitors.DP-1]
-    path = "/home/zaroc/dotfiles/wallpapers/alpha_pgr.jpg"
+    path = "/home/zaroc/wallpapers/raiden.shogun.jpg"
 
 [widget.control-center]
 custom_image = "/home/zaroc/dotfiles/icons/lilith_monochrome_clean.png"

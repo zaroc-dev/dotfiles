@@ -15,21 +15,16 @@
 
       xdg.configFile."fastfetch".source = "${self}/.config/fastfetch";
 
-      home.file.".config/noctalia/".source =
-        config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/noctalia";
-
-      home.file.".config/niri".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /.config/niri;
-      home.file.".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/kitty";
+      home.file = {
+        ".config/noctalia/".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/noctalia";
+        ".config/niri".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /.config/niri;
+        ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/kitty";
+        "wallpapers".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpapers";
+        ".face.icon".source = self + /icons/lilith_icon.gif;
+        ".applauncher.png".source = self + /icons/lilith_monochrome_clean.png;
+      };
 
       programs.home-manager.enable = true;
-
-      home.file.".face.icon" = {
-        source = self + /icons/lilith_icon.gif;
-      };
-
-      home.file.".applauncher.png" = {
-        source = self + /icons/lilith_monochrome_clean.png;
-      };
 
       home.sessionVariables = {
         EDITOR = "nvim";
