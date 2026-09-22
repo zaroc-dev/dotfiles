@@ -4,7 +4,7 @@
       self.packages.${pkgs.stdenv.hostPlatform.system}.chatgpt-desktop
       self.packages.${pkgs.stdenv.hostPlatform.system}.claude-desktop
       pkgs.teams-for-linux
-      (pkgs.discord.override { withVencord = true; })
+      pkgs.vesktop
     ];
 
     # Claude's downloaded Code runtime expects a conventional dynamic loader.

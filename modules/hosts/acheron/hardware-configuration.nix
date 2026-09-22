@@ -3,8 +3,7 @@
 
 	flake.nixosModules.acheronHardware = { config, lib, pkgs, modulesPath, ... }:
 	{
-        # Whatever results from `nixos-generate-config` goes here, but in a way that it can be easily merged with the configuration.nix file.
-        imports =
+  imports =
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
@@ -14,34 +13,33 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/81a327e9-aa1d-460d-a43f-537342e075d5";
+    { device = "/dev/disk/by-uuid/9c5e0342-6838-4b94-8080-a21ddc960477";
       fsType = "btrfs";
     };
 
   fileSystems."/home" =
-    { device = "/dev/disk/by-uuid/81a327e9-aa1d-460d-a43f-537342e075d5";
+    { device = "/dev/disk/by-uuid/9c5e0342-6838-4b94-8080-a21ddc960477";
       fsType = "btrfs";
       options = [ "subvol=home" ];
     };
 
   fileSystems."/nix" =
-    { device = "/dev/disk/by-uuid/81a327e9-aa1d-460d-a43f-537342e075d5";
+    { device = "/dev/disk/by-uuid/9c5e0342-6838-4b94-8080-a21ddc960477";
       fsType = "btrfs";
       options = [ "subvol=nix" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7767-4671";
+    { device = "/dev/disk/by-uuid/550C-AFD0";
       fsType = "vfat";
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/9fce7b80-3cd0-4b99-9007-5817bb5341bc"; }
+    [ { device = "/dev/disk/by-uuid/2db278fe-78b1-4225-a071-9f53c3761adb"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-
-	};
+};
 }
