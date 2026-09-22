@@ -41,6 +41,11 @@
       url = "github:Darkkal44/qylock";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mac-style-plymouth = {
+      url = "github:SergioRibera/s4rchiso-plymouth-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
