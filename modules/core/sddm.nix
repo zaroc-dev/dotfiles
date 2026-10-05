@@ -9,6 +9,7 @@
       services.displayManager.sddm = {
         enable = true;
         theme = "pixel-night-city";
+        wayland.enable = true;
         extraPackages = [
           qylockThemes
           pkgs.qt6.qt5compat

@@ -5,10 +5,6 @@ include "windowrules.kdl"
 include "monitor.kdl"
 include "keybinds.kdl"
 
-environment {
-    QT_QPA_PLATFORMTHEME "gtk3"
-}
-
 xwayland-satellite {
     path "xwayland-satellite"
 }

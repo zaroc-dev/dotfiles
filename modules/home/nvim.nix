@@ -5,7 +5,7 @@
     {
       programs.nixvim = {
         enable = true;
-        defaultEditor = true;
+        defaultEditor = false;
         viAlias = true;
         vimAlias = true;
 
@@ -37,11 +37,17 @@
           undofile = true;
           updatetime = 250;
           timeoutlen = 300;
-          completeopt = [ "menu" "menuone" "noselect" ];
+          completeopt = [
+            "menu"
+            "menuone"
+            "noselect"
+          ];
           wrap = false;
           clipboard = "unnamedplus";
           showmode = false;
-          fillchars = { eob = " "; };
+          fillchars = {
+            eob = " ";
+          };
         };
 
         keymaps = [
@@ -141,7 +147,12 @@
             action = "<cmd>nohlsearch<cr>";
           }
           {
-            mode = [ "i" "x" "n" "s" ];
+            mode = [
+              "i"
+              "x"
+              "n"
+              "s"
+            ];
             key = "<C-s>";
             action = "<cmd>w<cr><esc>";
             options.desc = "Save File";
@@ -157,7 +168,11 @@
         autoCmd = [
           {
             event = [ "FileType" ];
-            pattern = [ "markdown" "text" "gitcommit" ];
+            pattern = [
+              "markdown"
+              "text"
+              "gitcommit"
+            ];
             callback.__raw = ''
               function()
                 vim.opt_local.wrap = true
@@ -455,14 +470,38 @@
             settings = {
               preset = "classic";
               spec = [
-                { __unkeyed-1 = "<leader>f"; group = "Find"; }
-                { __unkeyed-1 = "<leader>c"; group = "Code"; }
-                { __unkeyed-1 = "<leader>g"; group = "Git"; }
-                { __unkeyed-1 = "<leader>x"; group = "Diagnostics"; }
-                { __unkeyed-1 = "<leader>t"; group = "Toggle / Terminal"; }
-                { __unkeyed-1 = "<leader>r"; group = "Rename"; }
-                { __unkeyed-1 = "<leader>y"; group = "Yank (Clipboard)"; }
-                { __unkeyed-1 = "<leader>d"; group = "Delete (No Register)"; }
+                {
+                  __unkeyed-1 = "<leader>f";
+                  group = "Find";
+                }
+                {
+                  __unkeyed-1 = "<leader>c";
+                  group = "Code";
+                }
+                {
+                  __unkeyed-1 = "<leader>g";
+                  group = "Git";
+                }
+                {
+                  __unkeyed-1 = "<leader>x";
+                  group = "Diagnostics";
+                }
+                {
+                  __unkeyed-1 = "<leader>t";
+                  group = "Toggle / Terminal";
+                }
+                {
+                  __unkeyed-1 = "<leader>r";
+                  group = "Rename";
+                }
+                {
+                  __unkeyed-1 = "<leader>y";
+                  group = "Yank (Clipboard)";
+                }
+                {
+                  __unkeyed-1 = "<leader>d";
+                  group = "Delete (No Register)";
+                }
               ];
             };
           };

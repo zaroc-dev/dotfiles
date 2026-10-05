@@ -7,7 +7,6 @@
     home-manager = {
       users.zaroc.imports = [
         self.homeModules.gtk
-        self.homeModules.kde
         self.homeModules.icons
         self.homeModules.defaultApps
         self.homeModules.brave
