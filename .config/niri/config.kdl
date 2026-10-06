@@ -29,6 +29,14 @@ input {
         tap
     }
 
+    touch {
+        map-to-output "eDP-1"
+    }
+
+    tablet {
+        map-to-output "eDP-1"
+    }
+
     mouse {
         accel-profile "flat"
     }

@@ -5,13 +5,13 @@ output "eDP-1" {
     scale 1.0
 }
 
-output "DP-5" {
+output "DP-4" {
 	mode "2560x1440@74.599"
 	position x=0 y=0
-        focus-at-startup
+    focus-at-startup
 }
 
-output "DP-4" {
+output "DP-5" {
 	mode "2560x1440@74.599"
 	position x=-2560 y=0
 }
