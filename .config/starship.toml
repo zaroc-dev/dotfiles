@@ -5,6 +5,7 @@ format = """
 [  ](bg:#a3aed2 fg:#090c0c)\
 [](bg:#769ff0 fg:#a3aed2)\
 $directory\
+$hostname\
 [](fg:#769ff0 bg:#394260)\
 $git_branch\
 $git_status\

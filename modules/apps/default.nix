@@ -14,6 +14,10 @@
       papers
     ];
 
-    services.flatpak.enable = true;
+    services = {
+      flatpak.enable = true;
+      # Nautilus uses GVfs for SMB shares and other remote filesystems.
+      gvfs.enable = true;
+    };
   };
 }

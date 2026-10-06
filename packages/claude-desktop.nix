@@ -22,6 +22,7 @@
   libGL,
   libglvnd,
   libnotify,
+  pipewire,
   libpulseaudio,
   libsecret,
   libuuid,
@@ -51,11 +52,11 @@
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "claude-desktop";
-  version = "2.2553.13";
+  version = "2.19675.1";
 
   src = fetchurl {
     url = "https://downloads.claude.ai/claude-desktop/apt/stable/pool/main/c/claude-desktop/claude-desktop_${finalAttrs.version}_amd64.deb";
-    hash = "sha256-AqlanRM0csG3c8jp297lZoG4FkUAF4CDvYtTudEdEJ8=";
+    hash = "sha256-m6En7szycPbmDTX1xTM2VAU78FQMiPyCoAnQFxGxBvw=";
   };
 
   nativeBuildInputs = [
@@ -84,6 +85,7 @@ stdenv.mkDerivation (finalAttrs: {
     libGL
     libglvnd
     libnotify
+    pipewire
     libpulseaudio
     libsecret
     libuuid
