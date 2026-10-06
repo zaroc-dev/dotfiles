@@ -1,14 +1,17 @@
 { ... }: {
   flake.nixosModules.niri = { pkgs, ... }: {
-    programs.niri = {
-      enable = true;
+    programs = {
+      niri.enable = true;
+      noctalia = {
+        enable = true;
+        recommendedServices.enable = true;
+      };
     };
 
     environment.systemPackages = with pkgs; [
       kitty
       wl-clipboard
       cliphist
-      noctalia
       xwayland-satellite
       fuzzel
     ];
