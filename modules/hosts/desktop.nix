@@ -15,6 +15,7 @@
         self.nixosModules.terminal
         self.nixosModules.apps
         self.nixosModules.ssh
+        self.nixosModules.network
         self.nixosModules.fonts
         self.nixosModules.bluetooth
         self.nixosModules.vpn

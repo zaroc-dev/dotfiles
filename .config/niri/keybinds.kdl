@@ -12,6 +12,7 @@ binds {
     Mod+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
     Mod+Shift+S hotkey-overlay-title="Capture Region" { spawn "noctalia" "msg" "screenshot-region"; }
     Mod+V hotkey-overlay-title="Clipboard History" { spawn "noctalia" "msg" "panel-toggle" "clipboard"; }
+    Mod+Shift+W hotkey-overlay-title="Wallpaper Selector" { spawn "noctalia" "msg" "panel-toggle" "wallpaper"; }
     Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
 

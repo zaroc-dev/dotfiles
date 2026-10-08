@@ -7,7 +7,7 @@
       # self.nixosModules.elden-ring-convergence
       # self.nixosModules.emulators
       self.nixosModules.input
-      self.nixosModules.network
+      self.nixosModules.wol
     ];
   };
 }
