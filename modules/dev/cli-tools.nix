@@ -12,6 +12,9 @@
       lazygit
       tree-sitter
       gcc
+
+      bitwarden-cli
+      gpu-screen-recorder
     ];
   };
 }
