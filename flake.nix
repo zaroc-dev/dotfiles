@@ -31,13 +31,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    qylock = {
-      url = "github:Darkkal44/qylock";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    mac-style-plymouth = {
-      url = "github:SergioRibera/s4rchiso-plymouth-theme";
+    yuki = {
+      url = "github:zaroc-dev/yuki";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

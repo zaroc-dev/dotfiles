@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ ... }:
 {
   flake.nixosModules.boot =
     { pkgs, ... }:
@@ -31,11 +31,8 @@
           };
         };
 
-        plymouth = {
-          enable = true;
-          theme = "mac-style";
-          themePackages = [ inputs.mac-style-plymouth.packages.${pkgs.stdenv.hostPlatform.system}.default ];
-        };
+        # Theme comes from yuki (see sddm.nix).
+        plymouth.enable = true;
       };
 
       environment.systemPackages = with pkgs; [

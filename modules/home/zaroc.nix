@@ -3,7 +3,7 @@
     { config, ... }:
     let
       # Writable copy of the repo, outside the read-only Nix store, so apps
-      # like noctalia can write back (settings, plugins). Change this if the repo moves.
+      # can write back. Change this if the repo moves.
       dotfiles = "${config.home.homeDirectory}/dotfiles";
     in
     {
@@ -16,7 +16,6 @@
       xdg.configFile."fastfetch".source = "${self}/.config/fastfetch";
 
       home.file = {
-        ".config/noctalia/".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/noctalia";
         ".config/niri".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /.config/niri;
         ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/kitty";
         "wallpapers".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpapers";
