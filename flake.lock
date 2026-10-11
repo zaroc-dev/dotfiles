@@ -267,11 +267,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1791478139,
-        "narHash": "sha256-fN1NLZIIzhudl8cXuQjlWGv5NRvQKIRO/6DTx6w2Chg=",
+        "lastModified": 1791687495,
+        "narHash": "sha256-zfNykx8BQpXEJ5d9GAMIn84hi4yjjnLdx7wN7iS5bks=",
         "owner": "zaroc-dev",
         "repo": "yuki",
-        "rev": "491b8516a3efc5b83360ec575f77179f6f30aed1",
+        "rev": "cdeb82c5be1cf5a76640132e39f5bdf60199c214",
         "type": "github"
       },
       "original": {
