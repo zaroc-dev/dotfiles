@@ -16,6 +16,7 @@
           git
           gnused
           gzip
+          jq
           nix
           nixfmt
           rpm
@@ -27,6 +28,7 @@
       packages = {
         chatgpt-desktop = pkgs.callPackage ../packages/chatgpt-desktop.nix { };
         claude-desktop = pkgs.callPackage ../packages/claude-desktop.nix { };
+        t3code-nightly = pkgs.callPackage ../packages/t3code-nightly.nix { };
         update-desktop-apps = updateDesktopApps;
       };
 

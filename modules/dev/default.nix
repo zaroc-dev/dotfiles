@@ -15,9 +15,10 @@
 
     home-manager.users.zaroc.imports = [ self.homeModules.vscode ];
 
-    environment.systemPackages = with pkgs; [
-      zed-editor
-      google-chrome
+    environment.systemPackages = [
+      pkgs.zed-editor
+      pkgs.google-chrome
+      self.packages.${pkgs.stdenv.hostPlatform.system}.t3code-nightly
     ];
   };
 }

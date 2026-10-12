@@ -219,7 +219,6 @@
           rust-analyzer
           stylua
           svelte-language-server
-          typescript-language-server
           vscode-langservers-extracted
         ];
 
