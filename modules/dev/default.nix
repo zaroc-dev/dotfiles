@@ -13,6 +13,8 @@
       self.nixosModules.rust
     ];
 
+    home-manager.users.zaroc.imports = [ self.homeModules.vscode ];
+
     environment.systemPackages = with pkgs; [
       zed-editor
       google-chrome

@@ -6,16 +6,13 @@
       environment.systemPackages = with pkgs; [
         bind
       ];
-      networking.firewall = {
-        allowedTCPPorts = [ 22 ];
+      # SECTION mDNS
+      # resolved already resolves .local (mDNS enabled via NetworkManager),
+      # but the firewall drops the multicast responses without this
+      networking.firewall.allowedUDPPorts = [ 5353 ];
+      # !SECTION
 
-        # SECTION mDNS
-        # resolved already resolves .local (mDNS enabled via NetworkManager),
-        # but the firewall drops the multicast responses without this
-        allowedUDPPorts = [ 5353 ];
-        # !SECTION
-      };
-
+      # Opens port 22 in the firewall by default (services.openssh.openFirewall).
       services.openssh.enable = true;
     };
 }

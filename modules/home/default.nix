@@ -13,28 +13,16 @@
     description = "home-manager modules exposed by this flake.";
   };
 
-  config.flake.nixosModules.home = { pkgs, ... }: {
-    imports = [
-      inputs.home-manager.nixosModules.home-manager
-    ];
-
-    programs.zsh.enable = true;
-    users.users.zaroc.shell = pkgs.zsh;
+  # Feature modules pull in their own home-manager half via
+  # `home-manager.users.zaroc.imports`; only the user basics live here.
+  config.flake.nixosModules.home = { ... }: {
+    imports = [ inputs.home-manager.nixosModules.home-manager ];
 
     home-manager = {
       useGlobalPkgs = true;
       useUserPackages = true;
       extraSpecialArgs = { inherit self inputs; };
-      users.zaroc.imports = [
-        inputs.nixvim.homeModules.nixvim
-        self.homeModules.zaroc
-        self.homeModules.nvim
-        self.homeModules.zsh
-        self.homeModules.starship
-        self.homeModules.dotnet
-        self.homeModules.git
-        self.homeModules.rust
-      ];
+      users.zaroc.imports = [ self.homeModules.zaroc ];
     };
   };
 }

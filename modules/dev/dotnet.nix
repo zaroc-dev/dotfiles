@@ -1,20 +1,24 @@
-{ ... }: {
-  flake.nixosModules.dotnet = { pkgs, ... }: {
-    environment.systemPackages = with pkgs; [
-      dotnet-sdk
-      nuget
-      mono
-    ];
-  };
+{ self, ... }: {
+  flake = {
+    nixosModules.dotnet = { pkgs, ... }: {
+      environment.systemPackages = with pkgs; [
+        dotnet-sdk
+        nuget
+        mono
+      ];
 
-  flake.homeModules.dotnet = { ... }: {
-    home.sessionPath = [
-      "$HOME/.dotnet/tools"
-    ];
+      home-manager.users.zaroc.imports = [ self.homeModules.dotnet ];
+    };
 
-    home.sessionVariables = {
-      DOTNET_CLI_TELEMETRY_OPTOUT = "1";
-      DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1";
+    homeModules.dotnet = { ... }: {
+      home = {
+        sessionPath = [ "$HOME/.dotnet/tools" ];
+
+        sessionVariables = {
+          DOTNET_CLI_TELEMETRY_OPTOUT = "1";
+          DOTNET_SKIP_FIRST_TIME_EXPERIENCE = "1";
+        };
+      };
     };
   };
 }

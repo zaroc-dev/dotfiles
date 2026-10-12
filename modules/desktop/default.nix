@@ -2,15 +2,18 @@
   flake.nixosModules.desktop = { pkgs, ... }: {
     imports = [
       self.nixosModules.niri
+      self.nixosModules.sddm
+      self.nixosModules.fonts
       self.nixosModules.avatar
       self.nixosModules.cursor
     ];
 
-    environment.systemPackages = with pkgs; [
-      ffmpeg
-      poppler # pdf
-      resvg # svg
-      imagemagick # imgs HEIC/JPEG
+    home-manager.users.zaroc.imports = [
+      self.homeModules.yuki
+      self.homeModules.gtk
+      self.homeModules.icons
     ];
+
+    environment.systemPackages = [ pkgs.gpu-screen-recorder ];
   };
 }

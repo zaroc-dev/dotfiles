@@ -7,28 +7,31 @@
       dotfiles = "${config.home.homeDirectory}/dotfiles";
     in
     {
-      home.username = "zaroc";
-      home.homeDirectory = "/home/zaroc";
-      home.stateVersion = "26.05";
+      home = {
+        username = "zaroc";
+        homeDirectory = "/home/zaroc";
+        stateVersion = "26.05";
 
-      xdg.enable = true;
+        file = {
+          ".config/niri".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /.config/niri;
+          ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/kitty";
+          "wallpapers".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpapers";
+          ".face.icon".source = self + /icons/lilith_icon.gif;
+          ".applauncher.png".source = self + /icons/lilith_monochrome_clean.png;
+        };
 
-      xdg.configFile."fastfetch".source = "${self}/.config/fastfetch";
+        sessionVariables = {
+          EDITOR = "code --wait";
+          VISUAL = "code --wait";
+          BROWSER = "brave";
+        };
+      };
 
-      home.file = {
-        ".config/niri".source = config.lib.file.mkOutOfStoreSymlink dotfiles + /.config/niri;
-        ".config/kitty".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/.config/kitty";
-        "wallpapers".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/wallpapers";
-        ".face.icon".source = self + /icons/lilith_icon.gif;
-        ".applauncher.png".source = self + /icons/lilith_monochrome_clean.png;
+      xdg = {
+        enable = true;
+        configFile."fastfetch".source = "${self}/.config/fastfetch";
       };
 
       programs.home-manager.enable = true;
-
-      home.sessionVariables = {
-        EDITOR = "code --wait";
-        VISUAL = "code --wait";
-        BROWSER = "brave";
-      };
     };
 }

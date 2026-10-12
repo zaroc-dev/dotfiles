@@ -1,8 +1,10 @@
-{ ... }:
+{ inputs, ... }:
 {
   flake.homeModules.nvim =
     { pkgs, ... }:
     {
+      imports = [ inputs.nixvim.homeModules.nixvim ];
+
       programs.nixvim = {
         enable = true;
         defaultEditor = false;

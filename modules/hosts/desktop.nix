@@ -5,22 +5,18 @@
     {
       imports = [
         self.nixosModules.hostCommon
-        self.nixosModules.boot
-        self.nixosModules.sddm
-        self.nixosModules.desktop
-        self.nixosModules.development
-        self.nixosModules.steam
-        self.nixosModules.osu
-        self.nixosModules.audio
-        self.nixosModules.terminal
-        self.nixosModules.apps
-        self.nixosModules.ssh
-        self.nixosModules.network
-        self.nixosModules.fonts
-        self.nixosModules.bluetooth
-        self.nixosModules.vpn
         self.nixosModules.home
-        self.nixosModules.home-desktop
+        self.nixosModules.boot
+        self.nixosModules.audio
+        self.nixosModules.bluetooth
+        self.nixosModules.network
+        self.nixosModules.ssh
+        self.nixosModules.vpn
+        self.nixosModules.terminal
+        self.nixosModules.desktop
+        self.nixosModules.apps
+        self.nixosModules.development
+        self.nixosModules.gaming
       ];
 
       networking.networkmanager.enable = true;
@@ -35,15 +31,12 @@
 
       console.keyMap = "de";
 
-      security.rtkit.enable = true;
-
       users.users.zaroc = {
         isNormalUser = true;
         description = "zaroc";
         extraGroups = [
           "networkmanager"
           "wheel"
-          "kvm"
         ];
       };
     };

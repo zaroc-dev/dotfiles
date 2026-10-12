@@ -14,6 +14,12 @@ flake.nixosModules.xyz = { ... }: {};
 
 And imported either per host for specifics or generally for multi-modules in a default.nix
 
+Files are grouped by feature, not by nixos/home-manager. A feature that needs both
+declares them side by side (`flake = { nixosModules.x = ...; homeModules.x = ...; };`)
+and the nixos half pulls in its own home half via
+`home-manager.users.zaroc.imports = [ self.homeModules.x ];`, so enabling the
+nixos module is all a host needs. Import every homeModule exactly once.
+
 Layout:
 
 - modules
@@ -22,7 +28,7 @@ Layout:
     - desktop: actual desktop (kde/niri) that is beeing used
     - dev: development environment for hosts
     - gaming: gaming packages and configs
-    - home: home-manager modules and configs
+    - home: home-manager bootstrap and user basics (feature HM modules live with their feature)
     - hosts: actual host configs
     - terminal: just a bunch of terminal apps
 

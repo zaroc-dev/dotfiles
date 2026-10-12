@@ -1,38 +1,42 @@
 { self, ... }: {
-  flake.homeModules.git = { ... }: {
-    home.file.".config/git/commit.template" = {
-      source = self + /.config/git/commit.template;
-    };
-    home.file.".config/git/allowed_signers" = {
-      source = self + /.config/git/allowed_signers;
-    };
-  };
+  flake = {
+    nixosModules.git = { pkgs, ... }: {
+      environment.systemPackages = [ pkgs.gh ];
 
-  flake.nixosModules.git = { pkgs, ... }: {
-    environment.systemPackages = [ pkgs.gh ];
+      programs.git = {
+        enable = true;
 
-    programs.git = {
-      enable = true;
+        config = {
+          init.defaultBranch = "main";
+          pull.rebase = true;
 
-      config = {
-        init.defaultBranch = "main";
-        pull.rebase = true;
+          user = {
+            name = "zaroc";
+            email = "arthuraktamirov@gmail.com";
+            signingKey = "~/.ssh/github.pub";
+          };
 
-        user = {
-          name = "zaroc";
-          email = "arthuraktamirov@gmail.com";
-          signingKey = "~/.ssh/github.pub";
+          gpg = {
+            format = "ssh";
+            ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+          };
+
+          commit = {
+            gpgsign = true;
+            template = "~/.config/git/commit.template";
+          };
+
+          tag.gpgsign = true;
         };
+      };
 
-        gpg.format = "ssh";
-        gpg.ssh.allowedSignersFile = "~/.config/git/allowed_signers";
+      home-manager.users.zaroc.imports = [ self.homeModules.git ];
+    };
 
-        commit = {
-          gpgsign = true;
-          template = "~/.config/git/commit.template";
-        };
-
-        tag.gpgsign = true;
+    homeModules.git = { ... }: {
+      home.file = {
+        ".config/git/commit.template".source = self + /.config/git/commit.template;
+        ".config/git/allowed_signers".source = self + /.config/git/allowed_signers;
       };
     };
   };

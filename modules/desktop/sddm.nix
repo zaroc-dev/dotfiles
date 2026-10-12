@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ self, inputs, ... }:
 {
   flake.nixosModules.sddm =
     { ... }:
@@ -8,7 +8,7 @@
       programs.yuki = {
         sddm = {
           enable = true;
-          background = ../../wallpapers/raiden.shogun.jpg;
+          background = self + /wallpapers/raiden.shogun.jpg;
         };
         plymouth.enable = true;
       };

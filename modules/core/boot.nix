@@ -1,4 +1,4 @@
-{ ... }:
+{ self, ... }:
 {
   flake.nixosModules.boot =
     { pkgs, ... }:
@@ -24,7 +24,7 @@
             secureBoot.enable = false; # you can enable secure boot if you are in setup mode
 
             style = {
-              wallpapers = [ ../../wallpapers/alpha_pgr.jpg ];
+              wallpapers = [ (self + /wallpapers/alpha_pgr.jpg) ];
               wallpaperStyle = "stretched";
               interface.branding = "Alpha OS";
             };

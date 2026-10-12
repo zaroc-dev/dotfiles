@@ -2,7 +2,7 @@
 let
   name = "ye-shunguang-zzz-cursors";
   size = 24;
-  packageFor = pkgs: pkgs.callPackage ../../packages/ye-shunguang-cursors.nix { };
+  packageFor = pkgs: pkgs.callPackage (self + /packages/ye-shunguang-cursors.nix) { };
 in
 {
   flake = {

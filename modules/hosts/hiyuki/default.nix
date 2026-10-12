@@ -4,7 +4,6 @@
     modules = [
       self.nixosModules.desktopHost
       self.nixosModules.hiyukiConfiguration
-      # self.nixosModules.elden-ring-convergence
       # self.nixosModules.emulators
       self.nixosModules.input
       self.nixosModules.wol

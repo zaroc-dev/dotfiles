@@ -1,25 +1,8 @@
-{ inputs, ... }: {
-  flake.nixosModules.steam = { pkgs, ... }: {
+{ self, ... }: {
+  flake.nixosModules.gaming = { ... }: {
     imports = [
+      self.nixosModules.steam
+      self.nixosModules.osu
     ];
-
-    programs.steam.enable = true;
-
-    hardware.steam-hardware.enable = true;
-
-    environment.systemPackages = with pkgs; [
-      # basic packages
-      lutris
-      mangohud
-      protonplus
-      protontricks
-      wineWow64Packages.stagingFull
-      winetricks
-
-      prismlauncher
-    ];
-    users.users."zaroc" = {
-      extraGroups = [ "input" ];
-    };
   };
 }

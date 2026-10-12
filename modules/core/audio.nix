@@ -1,13 +1,19 @@
-{...} : {
-    flake.nixosModules.audio = { ... }: {
+{ ... }: {
+  flake.nixosModules.audio = { ... }: {
+    # Realtime scheduling for PipeWire.
+    security.rtkit.enable = true;
 
-        services.pulseaudio.enable = false;
-        
-        services.pipewire = {
-            enable = true;
-            alsa.enable = true;
-            alsa.support32Bit = true;
-            pulse.enable = true;
+    services = {
+      pulseaudio.enable = false;
+
+      pipewire = {
+        enable = true;
+        alsa = {
+          enable = true;
+          support32Bit = true;
         };
+        pulse.enable = true;
+      };
     };
+  };
 }
