@@ -16,6 +16,9 @@ binds {
     Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
 
+    Alt+Tab hotkey-overlay-title="Switch Windows" { spawn "yuki" "ipc" "call" "switcher" "next"; }
+    Alt+Shift+Tab hotkey-overlay-title="Switch Windows Backward" { spawn "yuki" "ipc" "call" "switcher" "prev"; }
+
     // yuki controls also show its on-screen display.
     XF86AudioRaiseVolume allow-when-locked=true { spawn "yuki" "ipc" "call" "audio" "up" "10"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "yuki" "ipc" "call" "audio" "down" "10"; }
