@@ -2,6 +2,7 @@
   flake.nixosModules.development = { pkgs, ... }: {
     imports = [
       # self.nixosModules.flutter
+      self.nixosModules.android
       self.nixosModules.cli-tools
       self.nixosModules.javascript
       self.nixosModules.python
