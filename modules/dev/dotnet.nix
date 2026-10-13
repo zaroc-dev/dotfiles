@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.dotnet = { pkgs, ... }: {
       environment.systemPackages = with pkgs; [
@@ -7,7 +7,7 @@
         mono
       ];
 
-      home-manager.users.zaroc.imports = [ self.homeModules.dotnet ];
+      home-manager.users.${config.username}.imports = [ self.homeModules.dotnet ];
     };
 
     homeModules.dotnet = { ... }: {

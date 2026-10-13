@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.rust = { pkgs, ... }: {
       environment.systemPackages = with pkgs; [
@@ -6,7 +6,7 @@
         unzip
       ];
 
-      home-manager.users.zaroc.imports = [ self.homeModules.rust ];
+      home-manager.users.${config.username}.imports = [ self.homeModules.rust ];
     };
 
     homeModules.rust = { ... }: {

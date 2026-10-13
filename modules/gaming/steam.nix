@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   flake.nixosModules.steam = { pkgs, ... }: {
     programs.steam.enable = true;
 
@@ -16,6 +16,6 @@
       prismlauncher
     ];
 
-    users.users.zaroc.extraGroups = [ "input" ];
+    users.users.${config.username}.extraGroups = [ "input" ];
   };
 }

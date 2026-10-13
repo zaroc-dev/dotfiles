@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.osu =
       { pkgs, ... }:
@@ -57,7 +57,7 @@
           osu-mime
         ];
 
-        home-manager.users.zaroc.imports = [ self.homeModules.osu ];
+        home-manager.users.${config.username}.imports = [ self.homeModules.osu ];
       };
 
     homeModules.osu = { lib, pkgs, ... }: {

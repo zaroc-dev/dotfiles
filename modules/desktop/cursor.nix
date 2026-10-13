@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, config, ... }:
 let
   name = "ye-shunguang-zzz-cursors";
   size = 24;
@@ -36,7 +36,7 @@ in
           XCURSOR_PATH = "${package}/share/icons";
         };
 
-        home-manager.users.zaroc.imports = [ self.homeModules.cursor ];
+        home-manager.users.${config.username}.imports = [ self.homeModules.cursor ];
       };
 
     homeModules.cursor =

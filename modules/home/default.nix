@@ -1,5 +1,6 @@
 {
   self,
+  config,
   inputs,
   lib,
   ...
@@ -14,7 +15,7 @@
   };
 
   # Feature modules pull in their own home-manager half via
-  # `home-manager.users.zaroc.imports`; only the user basics live here.
+  # `home-manager.users.${username}.imports`; only the user basics live here.
   config.flake.nixosModules.home = { ... }: {
     imports = [ inputs.home-manager.nixosModules.home-manager ];
 
@@ -22,7 +23,7 @@
       useGlobalPkgs = true;
       useUserPackages = true;
       extraSpecialArgs = { inherit self inputs; };
-      users.zaroc.imports = [ self.homeModules.zaroc ];
+      users.${config.username}.imports = [ self.homeModules.zaroc ];
     };
   };
 }

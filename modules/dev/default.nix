@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake.nixosModules.development = { pkgs, ... }: {
     imports = [
       # self.nixosModules.flutter
@@ -13,7 +13,7 @@
       self.nixosModules.rust
     ];
 
-    home-manager.users.zaroc.imports = [ self.homeModules.vscode ];
+    home-manager.users.${config.username}.imports = [ self.homeModules.vscode ];
 
     environment.systemPackages = [
       pkgs.zed-editor

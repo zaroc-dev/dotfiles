@@ -1,4 +1,4 @@
-{ ... }: {
+{ config, ... }: {
   flake.nixosModules.docker = { pkgs, ... }: {
     virtualisation.docker = {
       enable = true;
@@ -8,7 +8,7 @@
       };
     };
 
-    users.users.zaroc.extraGroups = [ "docker" ];
+    users.users.${config.username}.extraGroups = [ "docker" ];
 
     environment.systemPackages = with pkgs; [
       docker-buildx

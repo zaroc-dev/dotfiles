@@ -1,4 +1,10 @@
-{ self, inputs, ... }: {
+{
+  self,
+  config,
+  inputs,
+  ...
+}:
+{
   flake.nixosModules.miyabiConfiguration = { ... }: {
 
     imports = [
@@ -22,7 +28,7 @@
 
     wsl = {
       enable = true;
-      defaultUser = "zaroc";
+      defaultUser = config.username;
     };
 
     programs.nix-ld.enable = true;

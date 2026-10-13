@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.git = { pkgs, ... }: {
       environment.systemPackages = [ pkgs.gh ];
@@ -11,8 +11,7 @@
           pull.rebase = true;
 
           user = {
-            name = "zaroc";
-            email = "arthuraktamirov@gmail.com";
+            inherit (config.git) name email;
             signingKey = "~/.ssh/github.pub";
           };
 
@@ -30,7 +29,7 @@
         };
       };
 
-      home-manager.users.zaroc.imports = [ self.homeModules.git ];
+      home-manager.users.${config.username}.imports = [ self.homeModules.git ];
     };
 
     homeModules.git = { ... }: {

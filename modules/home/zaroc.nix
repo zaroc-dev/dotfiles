@@ -1,4 +1,8 @@
-{ self, ... }: {
+{ self, config, ... }:
+let
+  inherit (config) username;
+in
+{
   flake.homeModules.zaroc =
     { config, ... }:
     let
@@ -8,8 +12,8 @@
     in
     {
       home = {
-        username = "zaroc";
-        homeDirectory = "/home/zaroc";
+        inherit username;
+        homeDirectory = "/home/${username}";
         stateVersion = "26.05";
 
         file = {

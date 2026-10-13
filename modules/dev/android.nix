@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.android = { pkgs, ... }: {
       # adb/fastboot; device access is handled by systemd uaccess rules,
@@ -9,9 +9,9 @@
       ];
 
       # emulator hardware acceleration
-      users.users.zaroc.extraGroups = [ "kvm" ];
+      users.users.${config.username}.extraGroups = [ "kvm" ];
 
-      home-manager.users.zaroc.imports = [ self.homeModules.android ];
+      home-manager.users.${config.username}.imports = [ self.homeModules.android ];
     };
 
     # SDK is managed by Android Studio's SDK Manager in ~/Android/Sdk

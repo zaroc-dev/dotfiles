@@ -1,8 +1,8 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake.nixosModules.terminal = { pkgs, ... }: {
     imports = [ self.nixosModules.zsh ];
 
-    home-manager.users.zaroc.imports = [
+    home-manager.users.${config.username}.imports = [
       self.homeModules.starship
       self.homeModules.nvim
     ];

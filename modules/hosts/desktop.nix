@@ -1,4 +1,4 @@
-{ self, ... }:
+{ self, config, ... }:
 {
   flake.nixosModules.desktopHost =
     { ... }:
@@ -31,9 +31,9 @@
 
       console.keyMap = "de";
 
-      users.users.zaroc = {
+      users.users.${config.username} = {
         isNormalUser = true;
-        description = "zaroc";
+        description = config.username;
         extraGroups = [
           "networkmanager"
           "wheel"

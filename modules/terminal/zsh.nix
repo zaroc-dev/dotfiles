@@ -1,10 +1,10 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.zsh = { pkgs, ... }: {
       programs.zsh.enable = true;
-      users.users.zaroc.shell = pkgs.zsh;
+      users.users.${config.username}.shell = pkgs.zsh;
 
-      home-manager.users.zaroc.imports = [ self.homeModules.zsh ];
+      home-manager.users.${config.username}.imports = [ self.homeModules.zsh ];
     };
 
     # Nix-managed zsh (kept out of the dotfiles so NixOS hosts can carry their

@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.apps = { pkgs, ... }: {
       imports = [
@@ -21,7 +21,7 @@
         gvfs.enable = true;
       };
 
-      home-manager.users.zaroc.imports = [ self.homeModules.apps ];
+      home-manager.users.${config.username}.imports = [ self.homeModules.apps ];
     };
 
     # Default handlers for the apps above.

@@ -1,4 +1,4 @@
-{ self, ... }: {
+{ self, config, ... }: {
   flake = {
     nixosModules.brave =
       { pkgs, ... }:
@@ -50,7 +50,7 @@
           etc."brave/policies/managed/policies.json".text = builtins.toJSON policies;
         };
 
-        home-manager.users.zaroc.imports = [ self.homeModules.brave ];
+        home-manager.users.${config.username}.imports = [ self.homeModules.brave ];
       };
 
     homeModules.brave =
