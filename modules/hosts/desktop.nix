@@ -8,18 +8,13 @@
         self.nixosModules.home
         self.nixosModules.boot
         self.nixosModules.audio
-        self.nixosModules.bluetooth
         self.nixosModules.network
-        self.nixosModules.ssh
-        self.nixosModules.vpn
         self.nixosModules.terminal
         self.nixosModules.desktop
         self.nixosModules.apps
         self.nixosModules.development
         self.nixosModules.gaming
       ];
-
-      networking.networkmanager.enable = true;
 
       services = {
         xserver.xkb = {

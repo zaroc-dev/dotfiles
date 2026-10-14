@@ -5,7 +5,6 @@
       # so the old programs.adb / adbusers group is no longer needed.
       environment.systemPackages = with pkgs; [
         android-studio
-        android-tools
       ];
 
       # emulator hardware acceleration
