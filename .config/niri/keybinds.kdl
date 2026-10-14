@@ -11,7 +11,7 @@ binds {
     Mod+B hotkey-overlay-title="Open Browser" { spawn "brave"; }
     Mod+Shift+S hotkey-overlay-title="Capture Region" { spawn "yuki" "ipc" "call" "screenshot" "region"; }
     Mod+V hotkey-overlay-title="Clipboard History" { spawn "yuki" "ipc" "call" "clipboard" "toggle"; }
-    Mod+Shift+W hotkey-overlay-title="Wallpaper Selector" { spawn "yuki" "ipc" "call" "settings" "open" "wallpaper"; }
+    Mod+Shift+W hotkey-overlay-title="Rinka Wallpaper Editor" { spawn "rinka"; }
     Mod+N hotkey-overlay-title="Notifications" { spawn "yuki" "ipc" "call" "bar" "toggle" "notifications"; }
     Mod+Alt+S allow-when-locked=true hotkey-overlay-title=null { spawn-sh "pkill orca || exec orca"; }
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }

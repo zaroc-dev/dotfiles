@@ -35,6 +35,11 @@
       url = "github:zaroc-dev/yuki";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    rinka = {
+      url = "github:zaroc-dev/rinka";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);

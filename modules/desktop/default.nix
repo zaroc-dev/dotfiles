@@ -10,6 +10,7 @@
 
     home-manager.users.${config.username}.imports = [
       self.homeModules.yuki
+      self.homeModules.rinka
       self.homeModules.gtk
       self.homeModules.icons
     ];
