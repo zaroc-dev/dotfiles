@@ -146,7 +146,7 @@ binds {
 
     Mod+W { toggle-column-tabbed-display; }
 
-    // Keep Niri's native screenshot as a fallback for Noctalia capture.
+    // Keep Niri's native screenshot as a fallback for yuki capture.
     Print { screenshot; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 

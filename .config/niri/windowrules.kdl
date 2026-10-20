@@ -1,3 +1,9 @@
+// Shared window appearance
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+}
+
 window-rule {
     background-effect {
         blur true
@@ -10,26 +16,10 @@ window-rule {
     open-maximized false
 
     background-effect {
-	blur true
-    }
-}
-
-layer-rule {
-  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
-  background-effect {
-    xray false
-    // blur false
-  }
-}
-
-/* Enable blur on noctalia's window switcher and disable xray. */
-layer-rule {
-    match namespace="noctalia-window-switcher"
-    background-effect {
         blur true
-        xray false
     }
 }
+
 window-rule {
     match app-id="vesktop"
     match app-id="brave"
@@ -44,8 +34,18 @@ window-rule {
     open-maximized true
 
     background-effect {
-	blur true
+        blur true
     }
+}
+
+// Steam's "friend is now playing" toasts open centered; keep them in the
+// bottom-right corner, away from yuki's own toasts at the top right.
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    open-floating true
+    open-focused false
+    open-maximized false
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 window-rule {
