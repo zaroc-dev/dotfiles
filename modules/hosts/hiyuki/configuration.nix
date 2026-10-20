@@ -9,6 +9,9 @@
       ];
 
       networking.hostName = "hiyuki";
+
+      services.displayManager.sddm.wayland.primaryOutput = "DP-2";
+
       system.stateVersion = "26.05";
     };
 }

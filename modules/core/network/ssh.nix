@@ -1,6 +1,5 @@
 { ... }: {
   flake.nixosModules = {
-    # Keep the client separate: miyabi uses it without an SSH server.
     ssh = { ... }: {
       programs.ssh = {
         extraConfig = "
@@ -17,7 +16,6 @@
       };
     };
 
-    # Opens port 22 by default (services.openssh.openFirewall).
     sshServer = { ... }: {
       services.openssh.enable = true;
     };

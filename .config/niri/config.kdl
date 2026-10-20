@@ -92,6 +92,11 @@ screenshot-path "~/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 animations {
 }
 
+layer-rule {
+    match namespace="^rinka-backdrop$"
+    place-within-backdrop true
+}
+
 debug {
     honor-xdg-activation-with-invalid-serial
     // Work around corrupted primary-plane scanout on NVIDIA. Without this,
