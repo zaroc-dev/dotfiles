@@ -11,7 +11,6 @@
           "udev.log_level=3"
         ];
         consoleLogLevel = 0;
-        initrd.verbose = false;
 
         loader = {
           systemd-boot.enable = false;
