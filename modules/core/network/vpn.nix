@@ -4,7 +4,10 @@
     { pkgs, ... }:
     {
       networking.networkmanager = {
-        plugins = [ pkgs.networkmanager-openconnect ];
+        plugins = with pkgs; [
+          networkmanager-openconnect
+          networkmanager-openvpn
+        ];
         ensureProfiles.profiles.hs-albsig = {
           connection = {
             id = "Hochschule Albstadt-Sigmaringen";
