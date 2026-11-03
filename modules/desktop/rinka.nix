@@ -12,6 +12,9 @@
 
       services.rinka.enable = true;
 
+      # Plasma paints its own desktop, so only niri shows this wallpaper.
+      systemd.user.services.rinka-host.Unit.ConditionEnvironment = "XDG_CURRENT_DESKTOP=niri";
+
       # Yuki watches this writable file in both the checkout and packaged shell.
       # Keep its other preferences, lock backgrounds and color sources intact.
       home.activation.rinkaWallpaper = lib.mkIf config.programs.yuki.enable (

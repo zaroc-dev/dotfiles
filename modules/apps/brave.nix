@@ -1,4 +1,11 @@
-{ self, config, ... }: {
+{ self, config, ... }:
+let
+  # Chromium picks its cookie key store per desktop (KWallet on Plasma,
+  # gnome-keyring on niri), and each holds a different key. Pin one so sessions
+  # survive switching desktops.
+  packageFor = pkgs: pkgs.brave.override { commandLineArgs = "--password-store=gnome-libsecret"; };
+in
+{
   flake = {
     nixosModules.brave =
       { pkgs, ... }:
@@ -46,7 +53,7 @@
       in
       {
         environment = {
-          systemPackages = [ pkgs.brave ];
+          systemPackages = [ (packageFor pkgs) ];
           etc."brave/policies/managed/policies.json".text = builtins.toJSON policies;
         };
 
@@ -160,7 +167,7 @@
 
         mkWebapp = id: name: url: {
           inherit name;
-          exec = "${pkgs.brave}/bin/brave --app=${url}";
+          exec = "${packageFor pkgs}/bin/brave --app=${url}";
           icon = "${self}/icons/apps/${id}.png";
           categories = [ "Network" ];
           terminal = false;

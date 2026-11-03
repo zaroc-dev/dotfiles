@@ -12,8 +12,8 @@
       protontricks
       wineWow64Packages.stagingFull
       winetricks
-
       prismlauncher
+      bottles
     ];
 
     users.users.${config.username}.extraGroups = [ "input" ];

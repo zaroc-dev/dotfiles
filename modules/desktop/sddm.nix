@@ -51,6 +51,8 @@
               enable = true;
               wayland = {
                 enable = true;
+                # Plasma would otherwise default the greeter to KWin.
+                compositor = "weston";
                 # Kiosk-shell routes the greeter's windows by application ID.
                 compositorCommand = lib.mkIf (
                   cfg.primaryOutput != null

@@ -2,6 +2,7 @@
   flake.nixosModules.desktop = { pkgs, ... }: {
     imports = [
       self.nixosModules.niri
+      self.nixosModules.plasma
       self.nixosModules.sddm
       self.nixosModules.fonts
       self.nixosModules.avatar
