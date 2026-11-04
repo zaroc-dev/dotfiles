@@ -13,25 +13,6 @@ in
         policies = {
           BookmarkBarEnabled = true;
 
-          ManagedBookmarks = [
-            {
-              name = "GitHub";
-              url = "https://github.com/";
-            }
-            {
-              name = "YouTube";
-              url = "https://www.youtube.com/";
-            }
-            {
-              name = "WhatsApp";
-              url = "https://web.whatsapp.com/";
-            }
-            {
-              name = "Google Calendar";
-              url = "https://calendar.google.com/";
-            }
-          ];
-
           ExtensionSettings = {
             # Bitwarden. Installed automatically, but can still be disabled.
             "nngceckbapebfimnlniiiahkandclblb" = {
@@ -82,6 +63,7 @@ in
           };
 
           brave = {
+            brave_search.show-ntp-search = false;
             darker_mode = false;
             enable_media_router_on_restart = true;
             has_seen_brave_welcome_page = true;
@@ -91,11 +73,12 @@ in
             new_tab_page = {
               background = {
                 random = false;
-                selected_value = "Vera_Garnet.png";
+                selected_value = wallpaperName;
                 type = "custom_image";
               };
-              custom_background_image_list = [ "Vera_Garnet.png" ];
+              custom_background_image_list = [ wallpaperName ];
               clock_format = "h24";
+              show_clock = true;
               show_together = false;
             };
 
@@ -135,6 +118,7 @@ in
 
           default_search_provider_data.template_url_data = googleSearch;
           intl.selected_languages = "en-US,en";
+          ntp.shortcust_visible = false; # Brave's preference name contains this typo.
           spellcheck.dictionaries = [ "en-US" ];
           tab_search.pinned_to_tabstrip = true;
           toolbar.pinned_actions = [
@@ -162,8 +146,92 @@ in
             brave.tabs.compact_horizontal_tabs = false;
           }
         );
+        # ManagedBookmarks always adds a folder. Merge these regular bar
+        # bookmarks into existing profiles, preserving personal bookmarks.
+        bookmarks = [
+          {
+            name = "GitHub";
+            url = "https://github.com/";
+          }
+          {
+            name = "GitLab";
+            url = "https://gitlab.com/";
+          }
+          {
+            name = "OneDrive";
+            url = "https://onedrive.live.com/";
+          }
+          {
+            name = "Teams";
+            url = "https://teams.cloud.microsoft/";
+          }
+          {
+            name = "Google Drive";
+            url = "https://drive.google.com/";
+          }
+          {
+            name = "Gmail";
+            url = "https://gmail.com/";
+          }
+          {
+            name = "YouTube";
+            url = "https://www.youtube.com/";
+          }
+          {
+            name = "WhatsApp";
+            url = "https://web.whatsapp.com/";
+          }
+          {
+            name = "Google Calendar";
+            url = "https://calendar.google.com/";
+          }
+          {
+            name = "Twitter";
+            url = "https://x.com/";
+          }
+          {
+            name = "Prydwen";
+            url = "https://prydwen.gg/";
+          }
+          {
+            name = "osu!";
+            url = "https://osu.ppy.sh/";
+          }
+        ];
+        bookmarkFolder = id: name: guid: children: {
+          inherit
+            id
+            name
+            guid
+            children
+            ;
+          type = "folder";
+          date_added = "0";
+          date_modified = "0";
+        };
+        bookmarksSeed = pkgs.writeText "brave-bookmarks.json" (
+          builtins.toJSON {
+            version = 1;
+            roots = {
+              bookmark_bar = bookmarkFolder "1" "Bookmarks bar" "0bc5d13f-2cba-5d74-951f-3f233fe6c908" (
+                lib.imap0 (
+                  index: bookmark:
+                  bookmark
+                  // {
+                    id = toString (index + 4);
+                    type = "url";
+                    date_added = "0";
+                  }
+                ) bookmarks
+              );
+              other = bookmarkFolder "2" "Other bookmarks" "82b081ec-3dd3-529c-8475-ab6c344590dd" [ ];
+              synced = bookmarkFolder "3" "Mobile bookmarks" "4cf2e351-0e85-532b-bb37-df045d8f8d0f" [ ];
+            };
+          }
+        );
         browserDir = "${config.xdg.configHome}/BraveSoftware/Brave-Browser";
-        wallpaper = self + /wallpapers/Vera_Garnet.png;
+        wallpaper = self + /wallpapers/alpha_pgr.jpg;
+        wallpaperName = builtins.baseNameOf wallpaper;
 
         mkWebapp = id: name: url: {
           inherit name;
@@ -182,7 +250,7 @@ in
         };
 
         home.activation.braveDefaults = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          # Never replace an existing profile or edit preferences during a session.
+          # Seed only missing files, and never modify an open profile.
           if [ ! -L ${lib.escapeShellArg "${browserDir}/SingletonLock"} ]; then
             if [ ! -e ${lib.escapeShellArg "${browserDir}/Default/Preferences"} ]; then
               run ${pkgs.coreutils}/bin/install -Dm600 ${profileSeed} \
@@ -193,9 +261,11 @@ in
                 ${lib.escapeShellArg "${browserDir}/Local State"}
             fi
           fi
-          if [ ! -e ${lib.escapeShellArg "${browserDir}/Default/sanitized_background_images/Vera_Garnet.png"} ]; then
+          run ${pkgs.python3}/bin/python3 ${./brave-bookmarks.py} \
+            ${lib.escapeShellArg browserDir} ${bookmarksSeed} ${packageFor pkgs}/bin/brave
+          if [ ! -e ${lib.escapeShellArg "${browserDir}/Default/sanitized_background_images/${wallpaperName}"} ]; then
             run ${pkgs.coreutils}/bin/install -Dm600 ${wallpaper} \
-              ${lib.escapeShellArg "${browserDir}/Default/sanitized_background_images/Vera_Garnet.png"}
+              ${lib.escapeShellArg "${browserDir}/Default/sanitized_background_images/${wallpaperName}"}
           fi
         '';
       };
