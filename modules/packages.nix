@@ -7,6 +7,7 @@
         inherit system;
         config.allowUnfree = true;
       };
+      matlab = pkgs.callPackage ../packages/matlab.nix { };
       updateDesktopApps = pkgs.writeShellApplication {
         name = "update-desktop-apps";
         runtimeInputs = with pkgs; [
@@ -26,15 +27,26 @@
     in
     {
       packages = {
+        inherit matlab;
         chatgpt-desktop = pkgs.callPackage ../packages/chatgpt-desktop.nix { };
         claude-desktop = pkgs.callPackage ../packages/claude-desktop.nix { };
         t3code-nightly = pkgs.callPackage ../packages/t3code-nightly.nix { };
         update-desktop-apps = updateDesktopApps;
       };
 
-      apps.update-desktop-apps = {
-        type = "app";
-        program = "${updateDesktopApps}/bin/update-desktop-apps";
+      apps = {
+        matlab-install = {
+          type = "app";
+          program = "${matlab}/bin/matlab-install";
+        };
+        matlab-shell = {
+          type = "app";
+          program = "${matlab}/bin/matlab-shell";
+        };
+        update-desktop-apps = {
+          type = "app";
+          program = "${updateDesktopApps}/bin/update-desktop-apps";
+        };
       };
     };
 }

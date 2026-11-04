@@ -5,15 +5,15 @@ output "eDP-1" {
     scale 1.0
 }
 
-output "DP-4" {
-	mode "2560x1440@74.599"
+output "DP-9" {
 	position x=0 y=0
+    mode "2560x1440@120"
     focus-at-startup
 }
 
-output "DP-5" {
-	mode "2560x1440@74.599"
-	position x=-2560 y=0
+output "DP-7" {
+	mode "1920x1080@144"
+	position x=-1920 y=0
 }
 
 // Desktop Monitors
