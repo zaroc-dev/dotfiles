@@ -4,6 +4,9 @@
 
     hardware.steam-hardware.enable = true;
 
+    # Lutris' compatibility runtime still includes GTK2 for older games.
+    nixpkgs.config.problems.handlers."gtk+".broken = "warn";
+
     environment.systemPackages = with pkgs; [
       # basic packages
       lutris
@@ -13,7 +16,6 @@
       wineWow64Packages.stagingFull
       winetricks
       prismlauncher
-      bottles
     ];
 
     users.users.${config.username}.extraGroups = [ "input" ];
