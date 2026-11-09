@@ -13,6 +13,7 @@
         loupe
         nautilus
         papers
+        self.packages.${pkgs.stdenv.hostPlatform.system}.matlab
       ];
 
       services = {
