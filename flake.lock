@@ -182,15 +182,16 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1792470454,
-        "narHash": "sha256-cAxsUd7s+wZWCxg8YJmptDzeI95fgtXPx0v9sJt/Em8=",
+        "lastModified": 1794229707,
+        "narHash": "sha256-s3AA0oH/c90WSJXyjXfIfZ1vi6PIp5NGzDLcSBJQQfc=",
         "owner": "zaroc-dev",
         "repo": "rinka",
-        "rev": "74aff1ec8b8bb820124c73e89dcda78461c756d7",
+        "rev": "413de27c6d6a19c7bb420a75e34635b55eeb4b8d",
         "type": "github"
       },
       "original": {
         "owner": "zaroc-dev",
+        "ref": "beta",
         "repo": "rinka",
         "type": "github"
       }

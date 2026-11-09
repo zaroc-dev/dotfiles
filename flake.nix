@@ -37,7 +37,7 @@
     };
 
     rinka = {
-      url = "github:zaroc-dev/rinka";
+      url = "github:zaroc-dev/rinka/beta";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
