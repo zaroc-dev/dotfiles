@@ -18,6 +18,7 @@
     environment.systemPackages = [
       pkgs.zed-editor
       pkgs.google-chrome
+      pkgs.code-cursor
       self.packages.${pkgs.stdenv.hostPlatform.system}.t3code-nightly
     ];
   };

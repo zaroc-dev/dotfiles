@@ -40,6 +40,9 @@
             enkia.tokyo-night
             esbenp.prettier-vscode
             formulahendry.auto-rename-tag
+            ms-python.debugpy
+            ms-python.python
+            ms-python.vscode-pylance
             ms-vscode.makefile-tools
             ms-vscode.powershell
             ms-vscode.remote-explorer
